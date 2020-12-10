@@ -1,0 +1,153 @@
+.sidenav1 {
+  height: 100%;
+  width: 0px;
+  background-color: #696969;
+  overflow-x: hidden;
+  transition: 0.3s;
+  float: left;
+  margin-right: 10px;
+}
+
+.sidenav1 .closebtn {
+  float: right;
+  width: 20%;
+}
+
+.sidenav1 a {
+  padding: 10px 10px 10px 30px;
+  text-decoration: none;
+  color: white;
+  display: block;
+}
+
+.topnav1 {
+  overflow: hidden;
+  background-color: #696969;
+}
+
+.topnav1 a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 23px 30px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav1 a.lineeMenu:hover {
+  background: #27282c;
+  color: white;
+}
+
+#list {
+  height: 1200px;
+  float: left;
+}
+
+.image {
+  height: 50px;
+  float: right;
+  padding: 10px;
+  border: none;
+}
+
+.image1 {
+  height: 15px;
+  padding: 10px;
+  float: right;
+}
+
+.clickable-row {
+  cursor: pointer;
+}
+
+.clickable-row:hover {
+  background-color: #dfdfdf;
+}
+
+.footer2 {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.content {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.table2 {
+  border-collapse: collapse;
+  border-style: solid;
+  border-color: black;
+  width: 100%;
+}
+
+.tableFunctions {
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+  align-items: center;
+}
+
+.tableFunctionsFloater {
+  flex: 1;
+}
+
+.tableFunctionsModify {
+  display: flex;
+  flex-direction: row;
+  height: 150px;
+  align-items: center;
+  float: right;
+}
+
+.tableFunctionsDelete {
+  display: flex;
+  flex-direction: row;
+  height: 150px;
+  align-items: center;
+  float: right;
+}
+
+.form {
+  padding: 20px 30vw 0px;
+}
+
+input[type="text"],
+textarea,
+select {
+  display: block;
+  border: 1px solid #a52a2a;
+  border-radius: 4px;
+  padding: 12px;
+  width: 100%;
+  margin-bottom: 20px;
+  -ms-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+.button {
+  background-color: white;
+  display: block;
+  width: 20vw;
+  padding: 12px;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin: auto;
+}
+
+.tableLink {
+  text-decoration: none;
+  color: black;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}
