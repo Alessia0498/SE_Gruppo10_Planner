@@ -23,7 +23,7 @@
         echo '<h3 style="text-align: center; color: red">' . $message . '</h3>';
     }
 
-    $value = rand(0, 3000);
+
 
 
     ?>
@@ -34,7 +34,7 @@
         <form method="post" action="view-maintenance-activity.screen.php" id="form1" name="form1" enctype="multipart/form-data">
 
 
-            <label for="type"> Activity Type:
+            <label for="type"> Activity Type: *
                 <select name="type" id="type" title="Select type">
                     <option value="pa">Planned Activity</option>
                     <option value="up">Un-planned Activity (EWO)</option>
@@ -42,23 +42,20 @@
                 </select>
             </label>
 
-            <label for="id">Activity Id:
-                <input type="number" required="required" name="id" id="id" readonly="readonly" value="<?php echo $value ?>" /> <br />
-            </label>
 
             <br />
 
-            <label for="site">Site (branch offices):
+            <label for="site">Site (branch offices): *
                 <input type="text" required="required" name="site" id="site" placeholder="Enter a site" title="Enter a site" />
             </label>
 
 
-            <label for="area"> Area (department):
+            <label for="area"> Area (department): *
                 <input type="text" required="required" name="area" id="area" placeholder="Enter a area" title="Enter a area" />
             </label>
 
 
-            <label for="tipology"> Activity's tipology:
+            <label for="tipology"> Activity's tipology: *
                 <select name="tipology" id="tipology" title="Select tipology">
                     <option value="eletrical"> Eletrical</option>
                     <option value="electronic"> Electronic</option>
@@ -68,19 +65,19 @@
             </label>
 
 
-            <label for="description"> Activity Description: <br />
+            <label for="description"> Activity Description: * <br />
                 <textarea rows="5" cols="81" required="required" name="description" id="description" placeholder="Enter an activity description" title="Enter an activity description "> </textarea> <br />
             </label>
 
             <br />
 
 
-            <label for="time"> Estimated intervention time (min):</label>
+            <label for="time"> Estimated intervention time (min): *</label>
             <input type="number" id="time" name="time" min="1" max="480"> <br />
             </label>
 
 
-            <p>Interruptible Activity:</p>
+            <p>Interruptible Activity: *</p>
             <input type="radio" id="yes" name="interruptible" value="yes">
             <label for="yes">Yes</label><br>
             <input type="radio" id="no" name="interruptible" value="no">
@@ -89,7 +86,7 @@
             <br />
 
 
-            <legend>Materials:*</legend><br>
+            <legend>Materials:</legend><br>
             <input type="checkbox" name="material1" value="material1" /> Material 1
             <br />
             <input type="checkbox" name="material2" value="material2" /> Material 2
@@ -99,13 +96,13 @@
             <br>
 
 
-            <label for="week"> Week (1-52 weeks):</label>
+            <label for="week"> Week (1-52 weeks): *</label>
             <input type="number" id="week" name="week" min="1" max="52"> <br />
             </label>
 
             <br />
 
-            <label for="note">Workspace notes:* <br />
+            <label for="note">Workspace notes:<br />
                 <textarea rows="5" cols="81" name="note" id="note"> </textarea> <br />
             </label>
 

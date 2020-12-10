@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 /**
@@ -63,14 +63,30 @@ class Api
   }
 
 
-/**
-   * Retrieves the list of maintenance activities from the database
+  /**
+   * Retrieves the list of maintenance's activities from the database
    *
    * @return string|bool
    * The result on success, false on failure.
    */
   static public function list_maintenance_activity()
   {
-    return self::get("/maintenance");
+    return self::get("/maintenances");
+  }
+
+
+
+  /**
+   * Retrieves the maintenance activity with given id from the database
+   *
+   * @param string $id
+   * The Maintenance's activity
+   * 
+   * @return string|bool
+   * The result on success, false on failure.
+   */
+  static public function get_maintenance_activity($id)
+  {
+    return self::get("/maintenance" . "/" . $id);
   }
 }

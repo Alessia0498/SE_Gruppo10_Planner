@@ -31,7 +31,7 @@
 
     echo "
       <form method=\"post\" action=\"$_SERVER[PHP_SELF]\" id=\"form\" name=\"form\" enctype=\"multipart/form-data\">
-      <label for=\"week\"> WEEK: <input type=\"text\" style=\"border: 1px solid black; width:10%\" class=\"weeknumber\" required=\"required\" name=\"week\" id=\"week\" placeholder=\"Enter a week [1-52]\" title=\"Enter a week\" />
+      <label for=\"week\"> WEEK: <input type=\"text\" style=\"border: 1px solid black; width:20vw; text-align:center;\" class=\"weeknumber\" required=\"required\" name=\"week\" id=\"week\" placeholder=\"Enter a week [1-52]\" title=\"Enter a week\" />
       </label></form>";
 
     echo "<table class='table2' border='1'>";
