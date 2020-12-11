@@ -5,7 +5,7 @@
   <title>Modify Maintenance Activity</title>
   <meta name="author" content="gruppo 10" />
   <link rel="stylesheet" type="text/css" href="../index.css" />
-  <meta name="content" content="Modify User Screen" />
+  <meta name="content" content="Modify Maintenance Activity Screen" />
   <link rel="icon" href="../assets/service.jpg" type="image/jpg" />
   <meta charset="utf-8" />
 </head>
@@ -133,7 +133,7 @@
       <br />
 
 
-      <legend>Materials:*</legend><br>
+      <legend>Materials:</legend><br>
       <? php  if (isset($data['material1'])){ ?>
       <input type="checkbox" name="material1" selected readonly value="material1" /> Material 1
       <input type="checkbox" name="material2" readonly value="material2" /> Material 2
@@ -191,7 +191,7 @@
 
       <br />
 
-      <label for="note">Workspace notes:* <br />
+      <label for="note">Workspace notes: <br />
         <textarea rows="5" cols="81" name="note" id="note" value="<?php echo $data['note'] ?>"> </textarea> <br />
       </label>
 

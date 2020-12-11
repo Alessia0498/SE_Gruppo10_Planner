@@ -87,11 +87,11 @@
 
 
             <legend>Materials:</legend><br>
-            <input type="checkbox" name="material1" value="material1" /> Material 1
+            <input type="checkbox" name="materials[]" value="material1" /> Material 1
             <br />
-            <input type="checkbox" name="material2" value="material2" /> Material 2
+            <input type="checkbox" name="materials[]" value="material2" /> Material 2
             <br />
-            <input type="checkbox" name="material3" value="material3" /> Material 3 <br />
+            <input type="checkbox" name="materials[]" value="material3" /> Material 3 <br />
 
             <br>
 
@@ -107,7 +107,7 @@
             </label>
 
             <br />
-
+       <p>  (*)Fields marked with an asterisk are required  </p>
             <button type="submit" class="button" name="registered" value="Insert a new maintenance activity">Insert a new maintenance activity</button>
             <?php back2(); ?>
         </form>

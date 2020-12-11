@@ -5,7 +5,7 @@
   <title>Maintenance Activity List</title>
   <meta name="author" content="gruppo 10" />
   <link rel="stylesheet" type="text/css" href="../index.css" />
-  <meta name="content" content="Maintenance Activity Screen" />
+  <meta name="content" content="Maintenance Activity List Screen" />
   <link rel="icon" href="../assets/service.jpg" type="image/jpg" />
   <meta charset="utf-8" />
 </head>
