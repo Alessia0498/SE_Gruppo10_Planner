@@ -90,7 +90,7 @@ class Api
     return self::get("/maintenance" . "/" . $id);
   }
 
-   /**
+  /**
    * Creates a new maintenance activity in the database based on given activity data
    *
    * @param array[string]string $maintenance
@@ -99,13 +99,14 @@ class Api
    * @return string|bool
    * The result on success, false on failure.
    */
-  static public function post_maintenance($maintenance){
-  
+  static public function post_maintenance_activity($maintenance)
+  {
+
     return self::post("/maintenance", $maintenance);
   }
 
 
-   /**
+  /**
    * Edits a maintenance activity with given id in the database based on given maintenance activity  data
    *
    * @param string $id
@@ -116,10 +117,22 @@ class Api
    * @return string|bool
    * The result on success, false on failure.
    */
-  static public function put_maintenance_activity($id, $maintenance){
+  static public function put_maintenance_activity($id, $maintenance)
+  {
     return self::put("/maintenance" . "/" . $id, $maintenance);
-
   }
 
-
+  /**
+   * Deletes a maintenance activity with given id from the database
+   *
+   * @param string $id
+   * The activity's id
+   * 
+   * @return string|bool
+   * The result on success, false on failure.
+   */
+  static public function delete_maintenance_activity($id)
+  {
+    return self::delete("/maintenance" . "/" . $id);
+  }
 }

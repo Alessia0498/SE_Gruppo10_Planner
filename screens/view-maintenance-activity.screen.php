@@ -11,14 +11,14 @@
 </head>
 
 <script type="text/javascript">
-    function show_message() {
-      if (confirm("Are you sure you want to cancel?")) {
-        return true;
-      }
-      self.location = 'list-maintenance-activity.screen.php';
-      return false;
+  function show_message() {
+    if (confirm("Are you sure you want to cancel?")) {
+      return true;
     }
-  </script>
+    self.location = 'list-maintenance-activity.screen.php';
+    return false;
+  }
+</script>
 </head>
 
 <body>
@@ -57,26 +57,26 @@
     echo "<p style='text-align:center'>Area: " . $data['area'] . "</p>";
     echo "<p style='text-align:center'>Tipology: " . $data['tipology'] . "</p>";
     echo "<p style='text-align:center'>Estimated Intervention Time: " . $data['time'] . "</p>";
-    echo "<p style='text-align:center' onClick=\"javascript:window.location.href='modify-user.screen.php?modify=yes&id=".$data['id']."'\"> Worspace notes: " . $data['note'] . "</p>";
+    echo "<p style='text-align:center' onClick=\"javascript:window.location.href='modify-user.screen.php?modify=yes&id=" . $data['id'] . "'\"> Worspace notes: " . $data['note'] . "</p>";
     echo "<p style='text-align:center'>Intervention Description: " . $data['description'] . "</p>";
-    echo "<p style='text-align:center'>Standard maintenance procedure:""</p>"; 
-    echo "<p style='text-align:center'>Skills Needed: competencies""</p>";
+    echo "<p style='text-align:center'>Standard maintenance procedure:</p>";
+    echo "<p style='text-align:center'>Skills Needed: competencies</p>";
   }
-  
 
- if (isset($_POST['registered'])) {
-      $new_activity = array('site'=>$_POST['site'],'area' => $_POST['area'], 'tipology' => $_POST['tipology'], 'description' => $_POST['description'], 'time' => $_POST['time'] ,'interruptible' => $_POST['interruptible'],'materials' => $_POST['materials'],'week' => $_POST['week'],'note' => $_POST['note']);
-      $response = Api::post_maintenance_activity($new_activity);
-      $data = json_decode($response, true);
 
-      if (isset($data["message"])) {
-        echo "<h3 class='error'>" . $data['message'] . "</h3>";
-      } else {
-        $message = "Successfully entered maintenance activity!";
-      }
+  if (isset($_POST['registered'])) {
+    $new_activity = array('site' => $_POST['site'], 'area' => $_POST['area'], 'tipology' => $_POST['tipology'], 'description' => $_POST['description'], 'time' => $_POST['time'], 'interruptible' => $_POST['interruptible'], 'materials' => $_POST['materials'], 'week' => $_POST['week'], 'note' => $_POST['note']);
+    $response = Api::post_maintenance_activity($new_activity);
+    $data = json_decode($response, true);
+
+    if (isset($data["message"])) {
+      echo "<h3 class='error'>" . $data['message'] . "</h3>";
     } else {
-      go_to_page("insert-maintenance-activity.screen.php?error=yes");
+      $message = "Successfully entered maintenance activity!";
     }
+
+    go_to_page("insert-maintenance-activity.screen.php?error=yes");
+
 
     if (isset($message)) {
       echo '<h3 style="text-align: center; color: green">' . $message . '</h3>';
@@ -105,9 +105,9 @@
       echo "<p style='text-align:center'>Estimated Intervention Time: " . $data['time'] . "</p>";
       echo "<p style='text-align:center'> Worspace notes: " . $data['note'] . "</p>";
       echo "<p style='text-align:center'>Intervention Description: " . $data['description'] . "</p>";
-      echo "<p style='text-align:center'>Standard maintenance procedure:""</p>"; 
-      echo "<p style='text-align:center'>Skills Needed: competencies""</p>";
-    
+      echo "<p style='text-align:center'>Standard maintenance procedure:</p>";
+      echo "<p style='text-align:center'>Skills Needed: competencies</p>";
+    }
   }
   back2();
 
@@ -115,5 +115,6 @@
 
 
 
-   </body>
-  </html> 
+</body>
+
+</html>
