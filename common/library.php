@@ -28,7 +28,7 @@ function generate_header1()
     <a href=\"javascript:void(0)\" class=\"closebtn\" onclick=\"closeNav()\"> &times;</a>
 
     <div id=\"list\">
-        <a href=\"list-users.screen.php\">##</a>
+        <a href=\"list-maintenance-activity.screen.php\">Maintenance activity</a>
     </div>
 </div> ";
 

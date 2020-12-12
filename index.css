@@ -94,6 +94,12 @@ body {
   width: 100%;
 }
 
+.table1 {
+  border-collapse: collapse;
+  border-style: solid;
+  display: flex;
+}
+
 .tableFunctions {
   display: flex;
   flex-direction: row;
@@ -105,12 +111,18 @@ body {
   flex: 1;
 }
 
-.tableFunctionsModify {
+.tableFunctionsForward {
   display: flex;
   flex-direction: row;
   height: 150px;
   align-items: center;
   float: right;
+}
+
+.tableFunctionsModify {
+  display: inline;
+  height: 40px;
+  cursor: pointer;
 }
 
 .tableFunctionsDelete {
@@ -126,10 +138,11 @@ body {
 }
 
 input[type="text"],
+input[type="number"],
 textarea,
 select {
   display: block;
-  border: 1px solid #a52a2a;
+  border: 1px solid #000000;
   border-radius: 4px;
   padding: 12px;
   width: 100%;
@@ -158,4 +171,10 @@ select {
 .error {
   color: red;
   text-align: center;
+}
+
+.meta {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
 }

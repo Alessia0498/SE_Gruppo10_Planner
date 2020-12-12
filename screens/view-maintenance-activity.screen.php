@@ -31,37 +31,44 @@
   ?>
 
   <?php
-  if (isset($_GET['id']) && !isset($_POST['save'])) {
-    $response = Api::get_maintenance_activity($_GET['id']);
-    $data = json_decode($response, true);
+  $data =  array(
+    'id' => 1, 'area' => 'zone1', 'tipology' => 'electrical', 'eit' => '30min', 'time' => '30min',
+    'week' => 3, 'note' => 'notes', 'description' => 'description'
+  );
+  //  if (isset($_GET['id']) && !isset($_POST['save'])) {
+  // $response = Api::get_maintenance_activity($_GET['id']);
+  //  $data = json_decode($response, true);
 
   ?>
-    <div class="tableFunctionsDelete">
-      <div class="tableFunctionsFloater"></div>
-      <a href="delete-maintenance-activity.screen.php?delete=yes&id=<?php echo $data['id']; ?>">
-        <img src="../assets/iconBucket.jpg" style="height:50px" title="Delete maintenance activity" onclick="return show_message();">
-      </a>
-    </div>
+  <div class="tableFunctionsDelete">
+    <div class="tableFunctionsFloater"></div>
+    <a href="delete-maintenance-activity.screen.php?delete=yes&id=<?php echo $data['id']; ?>">
+      <img src="../assets/iconBucket.jpg" style="height:50px" title="Delete maintenance activity" onclick="return show_message();">
+    </a>
+  </div>
 
-    <div class="tableFunctionsForward">
-      <div class="tableFunctionsFloater"></div>
-      <a href="forward-maintenance-activity.screen.php?forward=yes&id=<?php echo $data['id']; ?>">
-        <img src="../assets/forward.png" style="height:55px" title="Forward maintenance activity">
-      </a>
-    </div>
+  <div class="tableFunctionsForward">
+    <div class="tableFunctionsFloater"></div>
+    <a href="forward-maintenance-activity.screen.php?forward=yes&id=<?php echo $data['id']; ?>">
+      <img src="../assets/forward.png" style="height:40px" title="Forward maintenance activity">
+    </a>
+  </div>
+
   <?php
 
-    echo "
-        <h2 style='text-align:center'> Maintenance Activity Informtation </h2> 
-        <p style='text-align:center'> Id: " . $data['id'] . "</p>";
-    echo "<p style='text-align:center'>Area: " . $data['area'] . "</p>";
-    echo "<p style='text-align:center'>Tipology: " . $data['tipology'] . "</p>";
-    echo "<p style='text-align:center'>Estimated Intervention Time: " . $data['time'] . "</p>";
-    echo "<p style='text-align:center' onClick=\"javascript:window.location.href='modify-user.screen.php?modify=yes&id=" . $data['id'] . "'\"> Worspace notes: " . $data['note'] . "</p>";
-    echo "<p style='text-align:center'>Intervention Description: " . $data['description'] . "</p>";
-    echo "<p style='text-align:center'>Standard maintenance procedure:</p>";
-    echo "<p style='text-align:center'>Skills Needed: competencies</p>";
-  }
+
+  echo "
+        <h2 style='text-align:center'> Maintenance Activity Information </h2>
+        <div class='meta'>
+        <p> Id: " . $data['id'] . "</p>
+        <p>Area: " . $data['area'] . "</p>
+        <p>Tipology: " . $data['tipology'] . "</p>
+        <p>Estimated Intervention Time: " . $data['time'] . "</p>
+        <p> Worspace notes: " . $data['note'] . " <img src=\"../assets/modify.png\" class=\"tableFunctionsModify\" title=\"Modify maintenance activity\" onClick=\"javascript:window.location.href='modify-maintenance-activity.screen.php?modify=yes&id=" . $data['id'] . "'\"></p>
+        <p>Intervention Description: " . $data['description'] . "</p>
+        <p>Standard maintenance procedure:</p>
+        <p>Skills Needed: competencies</p></div>";
+  // }
 
 
   if (isset($_POST['registered'])) {

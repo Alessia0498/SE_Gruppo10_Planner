@@ -20,6 +20,8 @@
   $response = Api::list_maintenance_activity();
   $response = json_decode($response, true);
   ?>
+
+
   <div class="content">
     <div class="tableFunctions">
       <div class="tableFunctionsFloater"></div>
@@ -28,6 +30,8 @@
 
 
     <?php
+    $activity =  array('id' => 1, 'area' => 'zone1', 'tipology' => 'electrical', 'eit' => '30min', 'week' => 3);
+
 
     echo "
       <form method=\"post\" action=\"$_SERVER[PHP_SELF]\" id=\"form\" name=\"form\" enctype=\"multipart/form-data\">
@@ -46,13 +50,13 @@
       </thead>";
 
 
-    if ($response && $response['rows'] && isset($_POST['week'])) {
+    // if ($response && $response['rows'] && isset($_POST['week'])) {
 
-      foreach ($response['rows'] as $_ => $activity) {
-        if ($_POST['week'] == $activity['week']) {
+    //  foreach ($response['rows'] as $_ => $activity) {
+    if (isset($_POST['week']) && $_POST['week'] == $activity['week']) {
 
 
-          echo "  <tbody>
+      echo "  <tbody>
           <tr class=\"clickable-row\" onClick=\"javascript:window.location.href='view-maintenance-activity.screen.php?activity=" . $activity['id'] . "'\">
             <td width='35%' height='100%' align='center'>" . $activity['id'] . "</td>
             <td width='35%' height='100%' align='center'>" . $activity['area'] . "</td>
@@ -60,9 +64,9 @@
             <td width='35%' height='100%' align='center'>" . $activity['eit'] . "</td>   
           </tr>
         </tbody>";
-        }
-      }
+      //}
     }
+    // }
     echo "</table>";
     ?>
 

@@ -57,7 +57,7 @@
 
             <label for="tipology"> Activity's tipology: *
                 <select name="tipology" id="tipology" title="Select tipology">
-                    <option value="eletrical"> Eletrical</option>
+                    <option value="electrical"> Electrical</option>
                     <option value="electronic"> Electronic</option>
                     <option value="hydraulic"> Hydraulic</option>
                     <option value="mechanical"> Mechanical</option>
@@ -65,28 +65,27 @@
             </label>
 
 
-            <label for="description"> Activity Description: * <br />
+            <label for="description"> Activity Description: *
                 <textarea rows="5" cols="81" required="required" name="description" id="description" placeholder="Enter an activity description" title="Enter an activity description "> </textarea> <br />
             </label>
 
-            <br />
 
 
             <label for="time"> Estimated intervention time (min): *</label>
-            <input type="number" id="time" name="time" min="1" max="480"> <br />
+            <input type="number" id="time" name="time" min="1" max="480">
             </label>
 
 
             <p>Interruptible Activity: *</p>
             <input type="radio" id="yes" name="interruptible" value="yes">
-            <label for="yes">Yes</label><br>
+            <label for="yes">Yes</label>
             <input type="radio" id="no" name="interruptible" value="no">
             <label for="no">No</label><br>
 
             <br />
 
 
-            <legend>Materials:</legend><br>
+            <legend>Materials:</legend>
             <input type="checkbox" name="materials[]" value="material1" /> Material 1
             <br />
             <input type="checkbox" name="materials[]" value="material2" /> Material 2
@@ -100,16 +99,17 @@
             <input type="number" id="week" name="week" min="1" max="52"> <br />
             </label>
 
-            <br />
+
 
             <label for="note">Workspace notes:<br />
                 <textarea rows="5" cols="81" name="note" id="note"> </textarea> <br />
             </label>
 
             <br />
-       <p>  (*)Fields marked with an asterisk are required  </p>
+            <p> (*)Fields marked with an asterisk are required </p><br>
             <button type="submit" class="button" name="registered" value="Insert a new maintenance activity">Insert a new maintenance activity</button>
             <?php back2(); ?>
+            <br>
         </form>
     </div>
 
