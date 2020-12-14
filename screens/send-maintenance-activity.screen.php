@@ -80,140 +80,140 @@
 
     switch ($maintainer['min2']) {
         case 30:
-            $color = ("style=\"background:yellow; text-align:center; width:10%;\"");
+            $color1 = ("style=\"background:yellow; text-align:center; width:10%;\"");
             break;
 
         case 35:
-            $color = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
+            $color1 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
             break;
 
         case 40:
-            $color = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
+            $color1 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
             break;
 
 
         case 50:
-            $color = ("style=\"background:#8cff40; text-align:center; width:10%;cursor:pointer;\"");
+            $color1 = ("style=\"background:#8cff40; text-align:center; width:10%;cursor:pointer;\"");
             break;
 
         case 60:
-            $color = ("style=\"background:green; text-align:center; width:10%;cursor:pointer;\"");
+            $color1 = ("style=\"background:green; text-align:center; width:10%;cursor:pointer;\"");
             break;
     }
 
     switch ($maintainer['min3']) {
         case 30:
-            $color = ("style=\"background:yellow; text-align:center; width:10%;\"");
+            $color2 = ("style=\"background:yellow; text-align:center; width:10%;\"");
             break;
 
         case 35:
-            $color = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
+            $color2 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
             break;
 
         case 40:
-            $color = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
+            $color2= ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
             break;
 
 
         case 50:
-            $color = ("style=\"background:#8cff40; text-align:center; width:10%;cursor:pointer;\"");
+            $color2 = ("style=\"background:#8cff40; text-align:center; width:10%;cursor:pointer;\"");
             break;
 
         case 60:
-            $color = ("style=\"background:green; text-align:center; width:10%;cursor:pointer;\"");
+            $color2 = ("style=\"background:green; text-align:center; width:10%;cursor:pointer;\"");
             break;
     }
 
     switch ($maintainer['min4']) {
         case 30:
-            $color = ("style=\"background:yellow; text-align:center; width:10%;\"");
+            $color3 = ("style=\"background:yellow; text-align:center; width:10%;\"");
             break;
 
         case 35:
-            $color = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
+            $color3 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
             break;
 
         case 40:
-            $color = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
+            $color3 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
             break;
 
 
         case 50:
-            $color = ("style=\"background:#8cff40; text-align:center; width:10%;cursor:pointer;\"");
+            $color3 = ("style=\"background:#8cff40; text-align:center; width:10%;cursor:pointer;\"");
             break;
 
         case 60:
-            $color = ("style=\"background:green; text-align:center; width:10%;cursor:pointer;\"");
+            $color3 = ("style=\"background:green; text-align:center; width:10%;cursor:pointer;\"");
             break;
     }
 
 
     switch ($maintainer['min5']) {
         case 30:
-            $color = ("style=\"background:yellow; text-align:center; width:10%;\"");
+            $color4 = ("style=\"background:yellow; text-align:center; width:10%;\"");
             break;
 
         case 35:
-            $color = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
+            $color4 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
             break;
 
         case 40:
-            $color = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
+            $color4 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
             break;
 
 
         case 50:
-            $color = ("style=\"background:#8cff40; text-align:center; width:10%;cursor:pointer;\"");
+            $color4 = ("style=\"background:#8cff40; text-align:center; width:10%;cursor:pointer;\"");
             break;
 
         case 60:
-            $color = ("style=\"background:green; text-align:center; width:10%;cursor:pointer;\"");
+            $color4 = ("style=\"background:green; text-align:center; width:10%;cursor:pointer;\"");
             break;
     }
 
     switch ($maintainer['min6']) {
         case 30:
-            $color = ("style=\"background:yellow; text-align:center; width:10%;\"");
+            $color5 = ("style=\"background:yellow; text-align:center; width:10%;\"");
             break;
 
         case 35:
-            $color = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
+            $color5 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
             break;
 
         case 40:
-            $color = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
+            $color5 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
             break;
 
 
         case 50:
-            $color = ("style=\"background:#8cff40; text-align:center; width:10%;cursor:pointer;\"");
+            $color5 = ("style=\"background:#8cff40; text-align:center; width:10%;cursor:pointer;\"");
             break;
 
         case 60:
-            $color = ("style=\"background:green; text-align:center; width:10%;cursor:pointer;\"");
+            $color5 = ("style=\"background:green; text-align:center; width:10%;cursor:pointer;\"");
             break;
     }
 
     switch ($maintainer['min7']) {
         case 30:
-            $color = ("style=\"background:yellow; text-align:center; width:10%;\"");
+            $color6 = ("style=\"background:yellow; text-align:center; width:10%;\"");
             break;
 
         case 35:
-            $color = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
+            $color6= ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
             break;
 
         case 40:
-            $color = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
+            $color6 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
             break;
 
 
         case 50:
-            $color = ("style=\"background:#8cff40; text-align:center; width:10%;cursor:pointer;\"");
+            $color6= ("style=\"background:#8cff40; text-align:center; width:10%;cursor:pointer;\"");
             break;
 
         case 60:
-            $color = ("style=\"background:green; text-align:center; width:10%;cursor:pointer;\"");
+            $color6= ("style=\"background:green; text-align:center; width:10%;cursor:pointer;\"");
             break;
     }
 
