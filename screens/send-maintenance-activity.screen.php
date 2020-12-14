@@ -272,8 +272,8 @@
         
         <th> Maintainer </th>
         <th> Skills </th>
-        <th> Availability  <br>8.00-9.00</th>
-        <th> Availability  <br>9.00-10.00</th>
+        <th> Availability  <br> 8.00-9.00</th>
+        <th> Availability  <br> 9.00-10.00</th>
         <th> Availability  <br>10.00-11.00</th>
         <th> Availability  <br>11.00-12.00</th>
         <th> Availability  <br>14.00-15.00</th>
@@ -303,6 +303,12 @@
         ?>
     </div>
 
+    <div class="tableFunctionsSend">
+        <div class="tableFunctionsSend"></div>
+
+        <img src="../assets/send.png" class="image1" title="Send maintenance activity to maintainer">
+
+    </div>
 
 
 
