@@ -29,34 +29,31 @@
       'name' => 'Pippo', 'skills' => '3/5', 'AM' => '80%', 'AT' => '100%',
       'AW' => '20%', 'ATH' => '100%', 'AF' => '50%', 'ASA' => '20%', 'ASU' => '100%',
     );
+  }
 
-
-
-
-
+ ?>
+    <div class="content">
+    <div class="tableFunctions"> </div>
+<?php
     echo "
         <h2 style='text-align:center'> Maintenance Activity Information </h2> 
-        <table class='table1'>
+        <table  class='table3' border='1'>
         <tr>
-        <td style='text-align:center;  width:10%;'> Id: " . $data['id'] . "</td>
+        <td style='text-align:center; width:10%;'> Id: " . $data['id'] . "</td>
         <td style='text-align:center;  width:10%;'>Area: " . $data['area'] . "</td>
-        <td style='text-align:center;  width:10%;'>Tipology: " . $data['tipology'] . "</td>
-        <td style='text-align:center;  width:10%;'>Estimated Intervention Time: " . $data['time'] . "</td>
-        <td style='text-align:center;  width:10%;'>Week number: " . $data['week'] . "</td>
+        <td style='text-align:center; width:10%;'>Tipology: " . $data['tipology'] . "</td>
+        <td style='text-align:center; width:10%;'>Estimated Intervention Time: " . $data['time'] . "</td>
+        <td style='text-align:center; width:10%;'>Week number: " . $data['week'] . "</td>
         </tr>
-        <tr>
-        <td style='text-align:center;  width:10%;'>
-        <p> Skills Needed: </p>
-        <li>" . $competencies[0] . "</li>
-        <li>" . $competencies[1] . "</li>
-        <li>" . $competencies[2] . "</li>
-        </td>
+        
         <br>
-        <td style='text-align:center;  width:10%;'>
-        <p> Maintainer Availability </p>
-        <table class='table1'>
-        <thead>
+
+        <table class='table3'  border='1'>
+       <caption>
+       <h3>Maintainer Availability </h3> </caption>
+
         <tr>
+        <th>Skills Needed</th>
         <th> Maintainer </th>
         <th> Skills </th>
         <th> Availability  Monday</th>
@@ -67,27 +64,29 @@
         <th> Availability  Saturday</th>
         <th> Availability  Sunday</th>
         </tr>
-         </thead>
-         <tbody>
+      
+    
         <tr>
-         <td style='text-align:center;  width:10%;'> " . $maintainer['name'] . "</td>
-        <td style='text-align:center;  width:10%;'> " . $maintainer['skills'] . "</td>
-        <td style='text-align:center;  width:10%;'>" . $maintainer['AM'] . "</td>
-        <td style='text-align:center;  width:10%;'>" . $maintainer['AT'] . "</td>
-        <td style='text-align:center;  width:10%;'> " . $maintainer['AW'] . "</td>
-        <td style='text-align:center;  width:10%;'> " . $maintainer['ATH'] . "</td>
-        <td style='text-align:center;  width:10%;'> " . $maintainer['AF'] . "</td>
-        <td style='text-align:center;  width:10%;'> " . $maintainer['ASA'] . "</td>
-        <td style='text-align:center;  width:10%;'> " . $maintainer['ASU'] . "</td>
-        </tr>  
-         </tbody>
-         </table>
-         </td>
-        </tr></table>";
-  }
+        <td style='width:10%; text-align:center;'>
+      
+        <p>" . $competencies[0] . "</p>
+        <p>" . $competencies[1] . "</p>
+        <p>" . $competencies[2] . "</p>
+       
+        </td>
+        <td style='text-align:center;'> " . $maintainer['name'] . "</td>
+        <td style='text-align:center;'> " . $maintainer['skills'] . "</td>
+        <td style='text-align:center;'>" . $maintainer['AM'] . "</td>
+        <td style='text-align:center;'>" . $maintainer['AT'] . "</td>
+        <td style='text-align:center;'> " . $maintainer['AW'] . "</td>
+        <td style='text-align:center;'> " . $maintainer['ATH'] . "</td>
+        <td style='text-align:center;'> " . $maintainer['AF'] . "</td>
+        <td style='text-align:center;'> " . $maintainer['ASA'] . "</td>
+        <td style='text-align:center;'> " . $maintainer['ASU'] . "</td>
+        </tr>
+        </table>"
   ?>
-
-  <body>
+  </div>
   </body>
 
 </html>

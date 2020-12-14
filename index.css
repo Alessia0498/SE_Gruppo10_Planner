@@ -94,12 +94,12 @@ body {
   width: 100%;
 }
 
-.table1 {
+.table3{
   border-collapse: collapse;
   border-style: solid;
-  display: flex;
+  border-color: black;
+  width:100%;
 }
-
 .tableFunctions {
   display: flex;
   flex-direction: row;
