@@ -26,9 +26,56 @@
 
     $competencies = array('competence1', 'competence2', 'competence3');
     $maintainer =  array(
-      'name' => 'Pippo', 'skills' => '3/5', 'AM' => '80%', 'AT' => '100%',
-      'AW' => '20%', 'ATH' => '100%', 'AF' => '50%', 'ASA' => '20%', 'ASU' => '100%',
+      'name' => 'Pippo', 'skills' => '3/5', 'percentage1' => 80, 'percentage2' => 100,
+      'percentage3' => 20, 'percentage4' => 100, 'percentage5' => 50, 'percentage6' => 20, 'percentage7' => 100,
     );
+
+
+    switch ($maintainer['percentage1']) {
+      case 0:
+        $color = ("style=\"background:red;\"");
+        break;
+
+      case 20:
+        $color = ("style=\"background:orange;\"");
+        break;
+
+      case 50:
+        $color = ("style=\"background:yellow;\"");
+        break;
+
+
+      case 80:
+        $color = ("style=\"background:#8cff40;\"");
+        break;
+
+      case 100:
+        $color = ("style=\"background:green;\"");
+        break;
+    }
+
+    switch ($maintainer['percentage2']) {
+      case 0:
+        $color1 = ("style=\"background:red;\"");
+        break;
+
+      case 20:
+        $color1 = ("style=\"background:orange;\"");
+        break;
+
+      case 50:
+        $color1 = ("style=\"background:yellow;\"");
+        break;
+
+
+      case 80:
+        $color1 = ("style=\"background:#8cff40;\"");
+        break;
+
+      case 100:
+        $color1 = ("style=\"background:green;\"");
+        break;
+    }
 
 
 
@@ -72,13 +119,17 @@
         <tr>
          <td style='text-align:center;  width:10%;'> " . $maintainer['name'] . "</td>
         <td style='text-align:center;  width:10%;'> " . $maintainer['skills'] . "</td>
-        <td style='text-align:center;  width:10%;'>" . $maintainer['AM'] . "</td>
-        <td style='text-align:center;  width:10%;'>" . $maintainer['AT'] . "</td>
-        <td style='text-align:center;  width:10%;'> " . $maintainer['AW'] . "</td>
-        <td style='text-align:center;  width:10%;'> " . $maintainer['ATH'] . "</td>
-        <td style='text-align:center;  width:10%;'> " . $maintainer['AF'] . "</td>
-        <td style='text-align:center;  width:10%;'> " . $maintainer['ASA'] . "</td>
-        <td style='text-align:center;  width:10%;'> " . $maintainer['ASU'] . "</td>
+
+
+
+      
+        <td " . $color . " style='text-align:center;  width:10%; 'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage1'] . "'\">" . $maintainer['percentage1'] . "%</td>
+        <td " . $color1 . " style='text-align:center;  width:10%; 'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage2'] . "'\">" . $maintainer['percentage2'] . "%</td>
+        <td style='text-align:center;  width:10%; 'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage3'] . "'\">" . $maintainer['percentage3'] . "%</td>
+        <td style='text-align:center;  width:10%; 'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage4'] . "'\">" . $maintainer['percentage4'] . "%</td>
+        <td style='text-align:center;  width:10%; 'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage5'] . "'\">" . $maintainer['percentage5'] . "%</td>
+        <td style='text-align:center;  width:10%; 'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage6'] . "'\">" . $maintainer['percentage6'] . "%</td>
+        <td style='text-align:center;  width:10%; 'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage7'] . "'\">" . $maintainer['percentage7'] . "%</td>
         </tr>  
          </tbody>
          </table>
