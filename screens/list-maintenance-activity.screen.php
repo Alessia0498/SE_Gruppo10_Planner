@@ -58,10 +58,10 @@
 
       echo "  <tbody>
           <tr class=\"clickable-row\" onClick=\"javascript:window.location.href='view-maintenance-activity.screen.php?id=" . $data['id'] . "'\">
-            <td width='35%' height='100%' align='center'>" . $data['id'] . "</td>
-            <td width='35%' height='100%' align='center'>" . $data['area'] . "</td>
-            <td width='35%' height='100%' align='center'>" . $data['tipology'] . "</td> 
-            <td width='35%' height='100%' align='center'>" . $data['eit'] . "</td>   
+            <td width='17%' height='100%' align='center'>" . $data['id'] . "</td>
+            <td width='17%' height='100%' align='center'>" . $data['area'] . "</td>
+            <td width='17%' height='100%' align='center'>" . $data['tipology'] . "</td> 
+            <td width='17%' height='100%' align='center'>" . $data['eit'] . "</td>   
           </tr>
         </tbody>";
       //}

@@ -114,7 +114,7 @@ body {
 .tableFunctionsForward {
   display: flex;
   flex-direction: row;
-  height: 150px;
+  height: 500px;
   align-items: center;
   float: right;
 }
@@ -128,7 +128,7 @@ body {
 .tableFunctionsDelete {
   display: flex;
   flex-direction: row;
-  height: 150px;
+  height: 500px;
   align-items: center;
   float: right;
 }
@@ -177,4 +177,8 @@ select {
   width: 100%;
   text-align: center;
   margin-top: 20px;
+}
+
+.image1{
+  height:40px;
 }

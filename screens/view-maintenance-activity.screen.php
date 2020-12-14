@@ -43,14 +43,14 @@
     <div class="tableFunctionsDelete">
       <div class="tableFunctionsFloater"></div>
       <a href="delete-maintenance-activity.screen.php?delete=yes&id=<?php echo $data['id']; ?>">
-        <img src="../assets/iconBucket.jpg" style="height:50px" title="Delete maintenance activity" onclick="return show_message();">
+        <img src="../assets/iconBucket.jpg" class="image1" title="Delete maintenance activity" onclick="return show_message();">
       </a>
     </div>
 
     <div class="tableFunctionsForward">
       <div class="tableFunctionsFloater"></div>
       <a href="forward-maintenance-activity.screen.php?forward=yes&id=<?php echo $data['id']; ?>">
-        <img src="../assets/forward.png" style="height:40px" title="Forward maintenance activity">
+        <img src="../assets/forward.png"  class="image1"  title="Forward maintenance activity">
       </a>
     </div>
 
