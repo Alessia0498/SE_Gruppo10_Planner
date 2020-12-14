@@ -120,10 +120,8 @@ body {
 }
 
 .tableFunctionsSend {
-  display: flex;
-  flex-direction: row;
-  height: 500px;
-  align-items: center;
+  height: 100px;
+
   float: right;
 }
 
