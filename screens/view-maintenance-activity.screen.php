@@ -72,30 +72,32 @@
 
 
   if (isset($_POST['registered']) && isset($_GET['create'])) {
-    // $new_activity = array('site' => $_POST['site'], 'area' => $_POST['area'], 'tipology' => $_POST['tipology'], 'description' => $_POST['description'], 'time' => $_POST['time'], 'interruptible' => $_POST['interruptible'], 'materials' => $_POST['materials'], 'week' => $_POST['week'], 'note' => $_POST['note']);
-    // $response = Api::post_maintenance_activity($new_activity);
-    // $data = json_decode($response, true);
+    //$new_activity = array('site' => $_POST['site'], 'area' => $_POST['area'], 'tipology' => $_POST['tipology'], 'description' => $_POST['description'], 'time' => $_POST['time'], 'interruptible' => $_POST['interruptible'], 'materials' => $_POST['materials'], 'week' => $_POST['week'], 'note' => $_POST['note']);
+    //$response = Api::post_maintenance_activity($new_activity);
+    //$data = json_decode($response, true);
 
     if (isset($data["message"])) {
       echo "<h3 class='error'>" . $data['message'] . "</h3>";
+      go_to_page("insert-maintenance-activity.screen.php?error=yes");
     } else {
       $message = "Successfully entered maintenance activity!";
     }
 
+
+
+
     if (isset($message)) {
       echo '<h3 style="text-align: center; color: green">' . $message . '</h3>';
     }
-  } else {
-    go_to_page("insert-maintenance-activity.screen.php?error=yes");
   }
 
 
 
   if (isset($_GET['modify']) && isset($_POST['save']) && isset($_GET['id'])) {
 
-    //$new_activity = array('id' => $_GET['id'], 'note' => $_POST['note']);
-    //$response = Api::put_maintenance_activity($_GET["id"], $new_activity);
-    //$data = json_decode($response, true);
+    $new_activity = array('id' => $_GET['id'], 'note' => $_POST['note']);
+    $response = Api::put_maintenance_activity($_GET["id"], $new_activity);
+    $data = json_decode($response, true);
 
     if (isset($data["message"])) {
       echo "<h3 class='error'>" . $data['message'] . "</h3>";

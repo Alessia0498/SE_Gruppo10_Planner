@@ -30,7 +30,7 @@
 
 
     <?php
-    $activity =  array('id' => 1, 'area' => 'zone1', 'tipology' => 'electrical', 'eit' => '30min', 'week' => 3);
+    $data =  array('id' => 1, 'area' => 'zone1', 'tipology' => 'electrical', 'eit' => '30min', 'week' => 3);
 
 
     echo "
@@ -52,16 +52,16 @@
 
     // if ($response && $response['rows'] && isset($_POST['week'])) {
 
-    //  foreach ($response['rows'] as $_ => $activity) {
-    if (isset($_POST['week']) && $_POST['week'] == $activity['week']) {
+    //  foreach ($response['rows'] as $_ => $data) {
+    if (isset($_POST['week']) && $_POST['week'] == $data['week']) {
 
 
       echo "  <tbody>
-          <tr class=\"clickable-row\" onClick=\"javascript:window.location.href='view-maintenance-activity.screen.php?activity=" . $activity['id'] . "'\">
-            <td width='35%' height='100%' align='center'>" . $activity['id'] . "</td>
-            <td width='35%' height='100%' align='center'>" . $activity['area'] . "</td>
-            <td width='35%' height='100%' align='center'>" . $activity['tipology'] . "</td> 
-            <td width='35%' height='100%' align='center'>" . $activity['eit'] . "</td>   
+          <tr class=\"clickable-row\" onClick=\"javascript:window.location.href='view-maintenance-activity.screen.php?id=" . $data['id'] . "'\">
+            <td width='35%' height='100%' align='center'>" . $data['id'] . "</td>
+            <td width='35%' height='100%' align='center'>" . $data['area'] . "</td>
+            <td width='35%' height='100%' align='center'>" . $data['tipology'] . "</td> 
+            <td width='35%' height='100%' align='center'>" . $data['eit'] . "</td>   
           </tr>
         </tbody>";
       //}
