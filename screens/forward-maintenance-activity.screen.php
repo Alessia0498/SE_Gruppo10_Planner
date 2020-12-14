@@ -35,7 +35,7 @@
 
   switch ($maintainer['percentage1']) {
     case 0:
-      $color = ("style=\"background:red; text-align:center; width:10%;cursor:pointer;\"");
+      $color = ("style=\"background:red; text-align:center; width:10%;\"");
       break;
 
     case 20:
@@ -58,7 +58,7 @@
 
   switch ($maintainer['percentage2']) {
     case 0:
-      $color1 = ("style=\"background:red; text-align:center; width:10%;cursor:pointer;\"");
+      $color1 = ("style=\"background:red; text-align:center; width:10%;\"");
       break;
 
     case 20:
@@ -81,7 +81,7 @@
 
     switch ($maintainer['percentage3']) {
       case 0:
-        $color2 = ("style=\"background:red; text-align:center; width:10%;cursor:pointer;\"");
+        $color2 = ("style=\"background:red; text-align:center; width:10%;\"");
         break;
   
       case 20:
@@ -104,7 +104,7 @@
 
     switch ($maintainer['percentage4']) {
       case 0:
-        $color3 = ("style=\"background:red; text-align:center; width:10%;cursor:pointer;\"");
+        $color3 = ("style=\"background:red; text-align:center; width:10%;\"");
         break;
   
       case 20:
@@ -128,7 +128,7 @@
 
     switch ($maintainer['percentage5']) {
       case 0:
-        $color4 = ("style=\"background:red; text-align:center; width:10%;cursor:pointer;\"");
+        $color4 = ("style=\"background:red; text-align:center; width:10%;\"");
         break;
   
       case 20:
@@ -151,7 +151,7 @@
 
     switch ($maintainer['percentage6']) {
       case 0:
-        $color5 = ("style=\"background:red; text-align:center; width:10%;cursor:pointer;\"");
+        $color5 = ("style=\"background:red; text-align:center; width:10%;\"");
         break;
   
       case 20:
@@ -174,7 +174,7 @@
   
     switch ($maintainer['percentage7']) {
       case 0:
-        $color6 = ("style=\"background:red; text-align:center; width:10%;cursor:pointer;\"");
+        $color6 = ("style=\"background:red; text-align:center; width:10%;\"");
         break;
   
       case 20:
@@ -283,8 +283,8 @@
       
         <td " . $color . "  'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage1'] . "'\">" . $maintainer['percentage1'] . "%</td>
         <td " . $color1 . " 'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage2'] . "'\">" . $maintainer['percentage2'] . "%</td>
-        <td ". $color2 ."   'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage3'] . "'\">" . $maintainer['percentage3'] . "%</td>
-        <td ". $color3 ."  'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage4'] . "'\">" . $maintainer['percentage4'] . "%</td>
+        <td ". $color2 ."   'class=\"clickable-row\" "; if ($maintainer['percentage3']!=0){  echo"onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage3'] . "'\">" . $maintainer['percentage3'] ."%";  else{ echo $maintainer['percentage3']}"</td>"; 
+         echo " <td ". $color3 ."  'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage4'] . "'\">" . $maintainer['percentage4'] . "%</td>
         <td ". $color4 ."  'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage5'] . "'\">" . $maintainer['percentage5'] . "%</td>
         <td ". $color5 ."  'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage6'] . "'\">" . $maintainer['percentage6'] . "%</td>
         <td  ". $color6 ." 'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage7'] . "'\">" . $maintainer['percentage7'] . "%</td>
