@@ -31,7 +31,7 @@
 
 
     <div class="form">
-        <form method="post" action="view-maintenance-activity.screen.php" id="form1" name="form1" enctype="multipart/form-data">
+        <form method="post" action="view-maintenance-activity.screen.php?create=yes" id="form1" name="form1" enctype="multipart/form-data">
 
 
             <label for="type"> Activity Type: *

@@ -35,29 +35,29 @@
     'id' => 1, 'area' => 'zone1', 'tipology' => 'electrical', 'eit' => '30min', 'time' => '30min',
     'week' => 3, 'note' => 'notes', 'description' => 'description'
   );
-  //  if (isset($_GET['id']) && !isset($_POST['save'])) {
-  // $response = Api::get_maintenance_activity($_GET['id']);
-  //  $data = json_decode($response, true);
+  if (isset($_GET['id']) && !isset($_POST['save'])) {
+    // $response = Api::get_maintenance_activity($_GET['id']);
+    //  $data = json_decode($response, true);
 
   ?>
-  <div class="tableFunctionsDelete">
-    <div class="tableFunctionsFloater"></div>
-    <a href="delete-maintenance-activity.screen.php?delete=yes&id=<?php echo $data['id']; ?>">
-      <img src="../assets/iconBucket.jpg" style="height:50px" title="Delete maintenance activity" onclick="return show_message();">
-    </a>
-  </div>
+    <div class="tableFunctionsDelete">
+      <div class="tableFunctionsFloater"></div>
+      <a href="delete-maintenance-activity.screen.php?delete=yes&id=<?php echo $data['id']; ?>">
+        <img src="../assets/iconBucket.jpg" style="height:50px" title="Delete maintenance activity" onclick="return show_message();">
+      </a>
+    </div>
 
-  <div class="tableFunctionsForward">
-    <div class="tableFunctionsFloater"></div>
-    <a href="forward-maintenance-activity.screen.php?forward=yes&id=<?php echo $data['id']; ?>">
-      <img src="../assets/forward.png" style="height:40px" title="Forward maintenance activity">
-    </a>
-  </div>
+    <div class="tableFunctionsForward">
+      <div class="tableFunctionsFloater"></div>
+      <a href="forward-maintenance-activity.screen.php?forward=yes&id=<?php echo $data['id']; ?>">
+        <img src="../assets/forward.png" style="height:40px" title="Forward maintenance activity">
+      </a>
+    </div>
 
   <?php
 
 
-  echo "
+    echo "
         <h2 style='text-align:center'> Maintenance Activity Information </h2>
         <div class='meta'>
         <p> Id: " . $data['id'] . "</p>
@@ -68,13 +68,13 @@
         <p>Intervention Description: " . $data['description'] . "</p>
         <p>Standard maintenance procedure:</p>
         <p>Skills Needed: competencies</p></div>";
-  // }
+  }
 
 
-  if (isset($_POST['registered'])) {
-    $new_activity = array('site' => $_POST['site'], 'area' => $_POST['area'], 'tipology' => $_POST['tipology'], 'description' => $_POST['description'], 'time' => $_POST['time'], 'interruptible' => $_POST['interruptible'], 'materials' => $_POST['materials'], 'week' => $_POST['week'], 'note' => $_POST['note']);
-    $response = Api::post_maintenance_activity($new_activity);
-    $data = json_decode($response, true);
+  if (isset($_POST['registered']) && isset($_GET['create'])) {
+    // $new_activity = array('site' => $_POST['site'], 'area' => $_POST['area'], 'tipology' => $_POST['tipology'], 'description' => $_POST['description'], 'time' => $_POST['time'], 'interruptible' => $_POST['interruptible'], 'materials' => $_POST['materials'], 'week' => $_POST['week'], 'note' => $_POST['note']);
+    // $response = Api::post_maintenance_activity($new_activity);
+    // $data = json_decode($response, true);
 
     if (isset($data["message"])) {
       echo "<h3 class='error'>" . $data['message'] . "</h3>";
@@ -82,21 +82,20 @@
       $message = "Successfully entered maintenance activity!";
     }
 
-    go_to_page("insert-maintenance-activity.screen.php?error=yes");
-
-
     if (isset($message)) {
       echo '<h3 style="text-align: center; color: green">' . $message . '</h3>';
     }
+  } else {
+    go_to_page("insert-maintenance-activity.screen.php?error=yes");
   }
 
 
 
   if (isset($_GET['modify']) && isset($_POST['save']) && isset($_GET['id'])) {
 
-    $new_activity = array('id' => $_GET['id'], 'note' => $_POST['note']);
-    $response = Api::put_maintenance_activity($_GET["id"], $new_activity);
-    $data = json_decode($response, true);
+    //$new_activity = array('id' => $_GET['id'], 'note' => $_POST['note']);
+    //$response = Api::put_maintenance_activity($_GET["id"], $new_activity);
+    //$data = json_decode($response, true);
 
     if (isset($data["message"])) {
       echo "<h3 class='error'>" . $data['message'] . "</h3>";
