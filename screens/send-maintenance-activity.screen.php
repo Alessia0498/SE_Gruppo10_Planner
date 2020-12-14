@@ -27,8 +27,8 @@
         $skills = 5;
 
         $maintainer =  array(
-            'name' => 'Pippo', 'skills' => 1, 'min' => 30, 'min' => 35,
-            'min' => 60, 'min' => 50, 'min' => 50, 'min' => 35, 'min' => 60,
+            'name' => 'Pippo', 'skills' => 1, 'min1' => 30, 'min2' => 35,
+            'min3' => 60, 'min4' => 50, 'min5' => 50, 'min6' => 35, 'min7' => 60
         );
     }
 
@@ -288,19 +288,13 @@
 
 
       
-        <td " . $color . "  'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage1'] . "'\">" . $maintainer['percentage1'] . "min</td>
-        <td " . $color1 . " 'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage2'] . "'\">" . $maintainer['percentage2'] . "min</td>
-        <td " . $color2 . "   'class=\"clickable-row\" ";
-        if ($maintainer['percentage3'] != 0) {
-            echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage3'] . "'\">" . $maintainer['percentage3'] . "min</td>";
-        } else {
-            echo "'\">" . $maintainer['percentage3'] . "%</td>";
-        }
-
-        echo " <td " . $color3 . "  'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage4'] . "'\">" . $maintainer['percentage4'] . "min</td>
-        <td " . $color4 . "  'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage5'] . "'\">" . $maintainer['percentage5'] . "min</td>
-        <td " . $color5 . "  'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage6'] . "'\">" . $maintainer['percentage6'] . "min</td>
-        <td  " . $color6 . " 'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage7'] . "'\">" . $maintainer['percentage7'] . "min</td>
+        <td " . $color . "  'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['min1'] . "'\">" . $maintainer['min'] . "min</td>
+        <td " . $color1 . " 'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['min2'] . "'\">" . $maintainer['min2'] . "min</td>
+        <td " . $color2 . "   'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['min3'] . "'\">" . $maintainer['min3'] . "min</td>
+        <td " . $color3 . "  'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['min4'] . "'\">" . $maintainer['min4'] . "min</td>
+        <td " . $color4 . "  'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['min5'] . "'\">" . $maintainer['min5'] . "min</td>
+        <td " . $color5 . "  'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['min6'] . "'\">" . $maintainer['min6'] . "min</td>
+        <td  " . $color6 . " 'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['min7'] . "'\">" . $maintainer['min7'] . "min</td>
         </tr>  
          </tbody>
          </table>
