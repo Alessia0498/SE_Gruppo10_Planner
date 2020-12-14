@@ -21,7 +21,7 @@
     // $data = json_decode($response, true);
     $data =  array(
       'id' => 1, 'area' => 'zone1', 'tipology' => 'electrical', 'eit' => '30min', 'time' => '30min',
-      'week' => 3, 'note' => 'notes', 'description' => 'description'
+      'week' => 3, 'note' => 'notes', 'description' => 'description', 'note' => 'notes'
     );
 
     $skills = 5;
@@ -243,6 +243,7 @@
         <td style='text-align:center; width:10%;'>Tipology: " . $data['tipology'] . "</td>
         <td style='text-align:center; width:10%;'>Estimated Intervention Time: " . $data['time'] . "</td>
         <td style='text-align:center; width:10%;'>Week number: " . $data['week'] . "</td>
+        <td style='text-align:center; width:10%;'>Workspace notes: " . $data['note'] . "</td>
         </tr>
         
         <br>
