@@ -213,7 +213,7 @@
 
 
       <label for="note">Workspace notes: <br />
-        <textarea rows="5" cols="81" name="note" id="note" value="<?php echo $data['note'] ?>"> </textarea> <br />
+        <input type="text" name="note" id="note" value="<?php echo $data['note']; ?>" /> <br />
       </label>
 
       <button type="submit" name="save" id="save" value="Save" class="button"> Save</button>

@@ -50,7 +50,7 @@
     <div class="tableFunctionsForward">
       <div class="tableFunctionsFloater"></div>
       <a href="forward-maintenance-activity.screen.php?forward=yes&id=<?php echo $data['id']; ?>">
-        <img src="../assets/forward.png"  class="image1"  title="Forward maintenance activity">
+        <img src="../assets/forward.png" class="image1" title="Forward maintenance activity">
       </a>
     </div>
 
@@ -85,6 +85,25 @@
 
 
 
+
+    if (isset($message)) {
+      echo '<h3 style="text-align: center; color: green">' . $message . '</h3>';
+    }
+  }
+
+
+  if (isset($_GET['send'])) {
+
+
+    if (isset($data["message"])) {
+      echo "<h3 class='error'>" . $data['message'] . "</h3>";
+      go_to_page("send-maintenance-activity.screen.php?error=yes");
+    } else {
+      $message = "Activity assigned with success!";
+    }
+
+
+    $message = "Activity assigned with success!";
 
     if (isset($message)) {
       echo '<h3 style="text-align: center; color: green">' . $message . '</h3>';
