@@ -24,11 +24,11 @@
       'week' => 3, 'note' => 'notes', 'description' => 'description'
     );
 
-    $skills=5;
+    $skills = 5;
     $competencies = array('competence1', 'competence2', 'competence3');
     $maintainer =  array(
       'name' => 'Pippo', 'skills' => 1, 'percentage1' => 80, 'percentage2' => 100,
-      'percentage3' => 20, 'percentage4' => 0, 'percentage5' => 50, 'percentage6' => 20, 'percentage7' => 100,
+      'percentage3' => 20, 'percentage4' => 20, 'percentage5' => 50, 'percentage6' => 20, 'percentage7' => 100,
     );
   }
 
@@ -77,135 +77,135 @@
     case 100:
       $color1 = ("style=\"background:green; text-align:center; width:10%; cursor:pointer;\"");
       break;
-    }
+  }
 
-    switch ($maintainer['percentage3']) {
-      case 0:
-        $color2 = ("style=\"background:red; text-align:center; width:10%;\"");
-        break;
-  
-      case 20:
-        $color2 = ("style=\"background:orange; text-align:center; width:10%;cursor:pointer;\"");
-        break;
-  
-      case 50:
-        $color2 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
-        break;
-  
-  
-      case 80:
-        $color2 = ("style=\"background:#8cff40; text-align:center; width:10%; cursor:pointer;\"");
-        break;
-  
-      case 100:
-        $color2 = ("style=\"background:green; text-align:center; width:10%; cursor:pointer;\"");
-        break;
-    }
+  switch ($maintainer['percentage3']) {
+    case 0:
+      $color2 = ("style=\"background:red; text-align:center; width:10%;\"");
+      break;
 
-    switch ($maintainer['percentage4']) {
-      case 0:
-        $color3 = ("style=\"background:red; text-align:center; width:10%;\"");
-        break;
-  
-      case 20:
-        $color3 = ("style=\"background:orange; text-align:center; width:10%;cursor:pointer;\"");
-        break;
-  
-      case 50:
-        $color3 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
-        break;
-  
-  
-      case 80:
-        $color3 = ("style=\"background:#8cff40; text-align:center; width:10%; cursor:pointer;\"");
-        break;
-  
-      case 100:
-        $color3 = ("style=\"background:green; text-align:center; width:10%; cursor:pointer;\"");
-        break;
-    }
+    case 20:
+      $color2 = ("style=\"background:orange; text-align:center; width:10%;cursor:pointer;\"");
+      break;
+
+    case 50:
+      $color2 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
+      break;
 
 
-    switch ($maintainer['percentage5']) {
-      case 0:
-        $color4 = ("style=\"background:red; text-align:center; width:10%;\"");
-        break;
-  
-      case 20:
-        $color4 = ("style=\"background:orange; text-align:center; width:10%;cursor:pointer;\"");
-        break;
-  
-      case 50:
-        $color4 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
-        break;
-  
-  
-      case 80:
-        $color4 = ("style=\"background:#8cff40; text-align:center; width:10%; cursor:pointer;\"");
-        break;
-  
-      case 100:
-        $color4 = ("style=\"background:green; text-align:center; width:10%; cursor:pointer;\"");
-        break;
-    }
+    case 80:
+      $color2 = ("style=\"background:#8cff40; text-align:center; width:10%; cursor:pointer;\"");
+      break;
 
-    switch ($maintainer['percentage6']) {
-      case 0:
-        $color5 = ("style=\"background:red; text-align:center; width:10%;\"");
-        break;
-  
-      case 20:
-        $color5 = ("style=\"background:orange; text-align:center; width:10%;cursor:pointer;\"");
-        break;
-  
-      case 50:
-        $color5 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
-        break;
-  
-  
-      case 80:
-        $color5 = ("style=\"background:#8cff40; text-align:center; width:10%; cursor:pointer;\"");
-        break;
-  
-      case 100:
-        $color5= ("style=\"background:green; text-align:center; width:10%; cursor:pointer;\"");
-        break;
-    }
-  
-    switch ($maintainer['percentage7']) {
-      case 0:
-        $color6 = ("style=\"background:red; text-align:center; width:10%;\"");
-        break;
-  
-      case 20:
-        $color6 = ("style=\"background:orange; text-align:center; width:10%;cursor:pointer;\"");
-        break;
-  
-      case 50:
-        $color6 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
-        break;
-  
-  
-      case 80:
-        $color6 = ("style=\"background:#8cff40; text-align:center; width:10%; cursor:pointer;\"");
-        break;
-  
-      case 100:
-        $color6 = ("style=\"background:green; text-align:center; width:10%; cursor:pointer;\"");
-        break;
-    }
-  
+    case 100:
+      $color2 = ("style=\"background:green; text-align:center; width:10%; cursor:pointer;\"");
+      break;
+  }
+
+  switch ($maintainer['percentage4']) {
+    case 0:
+      $color3 = ("style=\"background:red; text-align:center; width:10%;\"");
+      break;
+
+    case 20:
+      $color3 = ("style=\"background:orange; text-align:center; width:10%;cursor:pointer;\"");
+      break;
+
+    case 50:
+      $color3 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
+      break;
 
 
-   switch($maintainer['skills']){
+    case 80:
+      $color3 = ("style=\"background:#8cff40; text-align:center; width:10%; cursor:pointer;\"");
+      break;
+
+    case 100:
+      $color3 = ("style=\"background:green; text-align:center; width:10%; cursor:pointer;\"");
+      break;
+  }
+
+
+  switch ($maintainer['percentage5']) {
+    case 0:
+      $color4 = ("style=\"background:red; text-align:center; width:10%;\"");
+      break;
+
+    case 20:
+      $color4 = ("style=\"background:orange; text-align:center; width:10%;cursor:pointer;\"");
+      break;
+
+    case 50:
+      $color4 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
+      break;
+
+
+    case 80:
+      $color4 = ("style=\"background:#8cff40; text-align:center; width:10%; cursor:pointer;\"");
+      break;
+
+    case 100:
+      $color4 = ("style=\"background:green; text-align:center; width:10%; cursor:pointer;\"");
+      break;
+  }
+
+  switch ($maintainer['percentage6']) {
+    case 0:
+      $color5 = ("style=\"background:red; text-align:center; width:10%;\"");
+      break;
+
+    case 20:
+      $color5 = ("style=\"background:orange; text-align:center; width:10%;cursor:pointer;\"");
+      break;
+
+    case 50:
+      $color5 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
+      break;
+
+
+    case 80:
+      $color5 = ("style=\"background:#8cff40; text-align:center; width:10%; cursor:pointer;\"");
+      break;
+
+    case 100:
+      $color5 = ("style=\"background:green; text-align:center; width:10%; cursor:pointer;\"");
+      break;
+  }
+
+  switch ($maintainer['percentage7']) {
+    case 0:
+      $color6 = ("style=\"background:red; text-align:center; width:10%;\"");
+      break;
+
+    case 20:
+      $color6 = ("style=\"background:orange; text-align:center; width:10%;cursor:pointer;\"");
+      break;
+
+    case 50:
+      $color6 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
+      break;
+
+
+    case 80:
+      $color6 = ("style=\"background:#8cff40; text-align:center; width:10%; cursor:pointer;\"");
+      break;
+
+    case 100:
+      $color6 = ("style=\"background:green; text-align:center; width:10%; cursor:pointer;\"");
+      break;
+  }
+
+
+
+  switch ($maintainer['skills']) {
     case 0:
       $color7 = ("style=\"background:red; text-align:center; width:10%;\"");
       break;
-    
-     case 1:
-     $color7 = ("style=\"background:#ff4d00; text-align:center; width:10%;\"");
-     break;
-  
+
+    case 1:
+      $color7 = ("style=\"background:#ff4d00; text-align:center; width:10%;\"");
+      break;
+
 
     case 2:
       $color7 = ("style=\"background:orange; text-align:center; width:10%;\"");
@@ -223,10 +223,9 @@
     case 5:
       $color7 = ("style=\"background:green; text-align:center; width:10%;\"");
       break;
-  
-   }
+  }
 
-  
+
 
 
 
@@ -277,17 +276,23 @@
     
         
         <td style='text-align:center;  width:10%;'> " . $maintainer['name'] . "</td>
-        <td " . $color7. " > " . $maintainer['skills'] . "/".$skills."</td> 
+        <td " . $color7 . " > " . $maintainer['skills'] . "/" . $skills . "</td> 
 
 
       
         <td " . $color . "  'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage1'] . "'\">" . $maintainer['percentage1'] . "%</td>
         <td " . $color1 . " 'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage2'] . "'\">" . $maintainer['percentage2'] . "%</td>
-        <td ". $color2 ."   'class=\"clickable-row\" "; if ($maintainer['percentage3']!=0){  echo"onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage3'] . "'\">" . $maintainer['percentage3'] ."%";  else{ echo $maintainer['percentage3']}"</td>"; 
-         echo " <td ". $color3 ."  'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage4'] . "'\">" . $maintainer['percentage4'] . "%</td>
-        <td ". $color4 ."  'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage5'] . "'\">" . $maintainer['percentage5'] . "%</td>
-        <td ". $color5 ."  'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage6'] . "'\">" . $maintainer['percentage6'] . "%</td>
-        <td  ". $color6 ." 'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage7'] . "'\">" . $maintainer['percentage7'] . "%</td>
+        <td " . $color2 . "   'class=\"clickable-row\" ";
+    if ($maintainer['percentage3'] != 0) {
+      echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage3'] . "'\">" . $maintainer['percentage3'] . "%</td>";
+    } else {
+      echo "'\">" . $maintainer['percentage3'] . "%</td>";
+    }
+
+    echo " <td " . $color3 . "  'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage4'] . "'\">" . $maintainer['percentage4'] . "%</td>
+        <td " . $color4 . "  'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage5'] . "'\">" . $maintainer['percentage5'] . "%</td>
+        <td " . $color5 . "  'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage6'] . "'\">" . $maintainer['percentage6'] . "%</td>
+        <td  " . $color6 . " 'class=\"clickable-row\" onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage7'] . "'\">" . $maintainer['percentage7'] . "%</td>
         </tr>  
          </tbody>
          </table>
