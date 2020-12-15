@@ -18,6 +18,7 @@
   session_start();
   generate_header1();
   $response = Api::list_maintenance_activity();
+
   $response = json_decode($response, true);
 
   ?>
