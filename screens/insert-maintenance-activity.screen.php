@@ -36,9 +36,9 @@
 
             <label for="type"> Activity Type: *
                 <select name="type" id="type" title="Select type">
-                    <option value="pa">Planned Activity</option>
-                    <option value="up">Un-planned Activity (EWO)</option>
-                    <option value="ea">Extra Activity</option>
+                    <option value="planned">Planned Activity</option>
+                    <option value="unplanned">Un-planned Activity (EWO)</option>
+                    <option value="extra_activity">Extra Activity</option>
                 </select>
             </label>
 

@@ -18,13 +18,13 @@
   generate_header1();
   session_start();
 
-  //$response = Api::get_maintenance_activity($_GET['id']);
-  //$data = json_decode($response, true);
+  $response = Api::get_maintenance_activity($_GET['id']);
+  $data = json_decode($response, true);
 
-  $data =  array(
+  /*$data =  array(
     'id' => 1, 'area' => 'zone1', 'tipology' => 'electrical', 'eit' => '30min', 'time' => '30min',
     'week' => 3, 'note' => 'notes', 'description' => 'description', 'type' => 'ua', 'site' => 'site', 'interruptible' => 'yes', 'materials' => 'material1, material2'
-  );
+  );*/
   ?>
 
   <div class="form">

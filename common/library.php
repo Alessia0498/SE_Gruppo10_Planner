@@ -19,7 +19,9 @@ function generate_header1()
     echo "
 <div id=\"header\" class=\"topnav1\">
     <a class=\"lineeMenu\" onclick=\"openNav()\" href=\"#home\">☰ List Maintenance Activity</a>
-    <img class=\"image\" src=\"..\assets\user.png\">
+    <a href=\"/Progetto/SE_Gruppo10_Admin/login.php?logout=yes\"><img class=\"image\" src=\"..\assets\user.png\"></a>
+    
+
 </div>";
 
 

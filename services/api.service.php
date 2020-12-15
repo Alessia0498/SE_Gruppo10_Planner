@@ -1,5 +1,5 @@
-<?php
 
+<?php
 
 /**
  * Api service to help manage http requests to the database
@@ -8,7 +8,20 @@ class Api
 {
   static private $base_url = "http://arma-se.ddns.net";
 
-  static private function call_api($method, $url, $data = false)
+  static private $temporary_token = "";
+
+  static private function get_token()
+  {
+    if (API::$temporary_token) {
+      return API::$temporary_token;
+    }
+    if (isset($_SESSION['token'])) {
+      return $_SESSION['token'];
+    }
+    throw new Exception("Missing Access token");
+  }
+
+  static private function call_api($method, $url, $data = false, $authorization = true)
   {
     $curl = curl_init();
     switch ($method) {
@@ -30,36 +43,53 @@ class Api
     // Optional Authentication:
     // curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
     // curl_setopt($curl, CURLOPT_USERPWD, "username:password");
+    if ($authorization) {
+      try {
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+          "Authorization: Bearer " . API::get_token()
+        ));
+      } catch (Exception $var) {
+        go_to_page("login.php");
+      }
+    }
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
     $result = curl_exec($curl);
+    $status_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
     curl_close($curl);
-    return $result;
+    return [
+      'status_code' => $status_code,
+      'data' => $result
+    ];
   }
 
-  static private function request($method, $url, $data = false)
+  static private function request($method, $url, $data = false, $authorization = true)
   {
-    return self::call_api($method, self::$base_url . $url, $data);
+    $response = self::call_api($method, self::$base_url . $url, $data, $authorization);
+    if ($response["status_code"] == 401) {
+      go_to_page("./SE_Gruppo10_Admin/login.php");
+    }
+    return $response["data"];
   }
 
-  static private function get($url, $data = false)
+  static private function get($url, $data = false, $authorization = true)
   {
-    return self::request("GET", $url, $data);
+    return self::request("GET", $url, $data, $authorization);
   }
 
-  static private function post($url, $data = false)
+  static private function post($url, $data = false, $authorization = true)
   {
-    return self::request("POST", $url, $data);
+    return self::request("POST", $url, $data, $authorization);
   }
 
-  static private function put($url, $data = false)
+  static private function put($url, $data = false, $authorization = true)
   {
-    return self::request("PUT", $url, $data);
+    return self::request("PUT", $url, $data, $authorization);
   }
 
-  static private function delete($url, $data = false)
+  static private function delete($url, $data = false, $authorization = true)
   {
-    return self::request("DELETE", $url, $data);
+    return self::request("DELETE", $url, $data, $authorization);
   }
 
 
@@ -71,7 +101,28 @@ class Api
    */
   static public function list_maintenance_activity()
   {
-    return self::get("/maintenances");
+    return self::get("/activities");
+  }
+
+
+  /**
+   * Retrieves the list of maintenance activities from the database by size
+   *
+   * @param string $current
+   * The current page
+   * 
+   * @param string $page_size
+   * The page size
+   * 
+   * @param string $week
+   * The week of the maintainance activity
+   * 
+   * @return string|bool
+   * The result on success, false on failure.
+   */
+  static public function list_activities_by_size($week, $current, $page_size)
+  {
+    return self::get("/activities" . "?week=" . $week . "&current_page=" . $current . "&page_size=" . $page_size);
   }
 
 
@@ -87,7 +138,7 @@ class Api
    */
   static public function get_maintenance_activity($id)
   {
-    return self::get("/maintenance" . "/" . $id);
+    return self::get("/activity" . "/" . $id);
   }
 
   /**
@@ -102,7 +153,7 @@ class Api
   static public function post_maintenance_activity($maintenance)
   {
 
-    return self::post("/maintenance", $maintenance);
+    return self::post("/activity", $maintenance);
   }
 
 
@@ -119,7 +170,7 @@ class Api
    */
   static public function put_maintenance_activity($id, $maintenance)
   {
-    return self::put("/maintenance" . "/" . $id, $maintenance);
+    return self::put("/activity" . "/" . $id, $maintenance);
   }
 
   /**
@@ -133,6 +184,43 @@ class Api
    */
   static public function delete_maintenance_activity($id)
   {
-    return self::delete("/maintenance" . "/" . $id);
+    return self::delete("/activity" . "/" . $id);
+  }
+
+  /**
+   * 
+   * Checks that the inserted user is in the database
+   * 
+   * 
+   * @return string|bool
+   * The result on success, false on failure.
+   */
+  static public function login($user)
+  {
+    $login_response = self::post("/login", $user, false);
+    $login_data = json_decode($login_response, true);
+    if (isset($login_data["access_token"])) {
+      Api::$temporary_token = $login_data["access_token"];
+      $_SESSION["token"] = $login_data["access_token"];
+    }
+    return $login_response;
+  }
+
+
+  /**
+   * 
+   * Logout user
+   * 
+   * 
+   * @return string|bool
+   * The result on success, false on failure.
+   */
+  static public function logout()
+  {
+    Api::$temporary_token = "";
+    if (isset($_SESSION["token"])) {
+      unset($_SESSION["token"]);
+    }
+    return self::post("/logout");
   }
 }

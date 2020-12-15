@@ -31,13 +31,13 @@
   ?>
 
   <?php
-  $data =  array(
+  /* $data =  array(
     'id' => 1, 'area' => 'zone1', 'tipology' => 'electrical', 'eit' => '30min', 'time' => '30min',
     'week' => 3, 'note' => 'notes', 'description' => 'description'
-  );
+  );*/
   if (isset($_GET['id']) && !isset($_POST['save'])) {
-    // $response = Api::get_maintenance_activity($_GET['id']);
-    //  $data = json_decode($response, true);
+    $response = Api::get_maintenance_activity($_GET['id']);
+    $data = json_decode($response, true);
 
   ?>
     <div class="tableFunctionsDelete">
@@ -60,21 +60,29 @@
     echo "
         <h2 style='text-align:center'> Maintenance Activity Information </h2>
         <div class='meta'>
-        <p> Id: " . $data['id'] . "</p>
-        <p>Area: " . $data['area'] . "</p>
-        <p>Tipology: " . $data['tipology'] . "</p>
-        <p>Estimated Intervention Time: " . $data['time'] . "</p>
-        <p> Worspace notes: " . $data['note'] . " <img src=\"../assets/modify.png\" class=\"tableFunctionsModify\" title=\"Modify maintenance activity\" onClick=\"javascript:window.location.href='modify-maintenance-activity.screen.php?modify=yes&id=" . $data['id'] . "'\"></p>
+        <p> Id: " . $data['activity_id'] . "</p>
+        <p>Area: " . $data['activity_type'] . "</p>
+        <p>Site: " . $data['site'] . "</p>
+        <p>Tipology: " . $data['typology'] . "</p>
+        <p>Estimated Intervention Time: " . $data['estimated_time'] . "</p>
+        <p>Interruptible: " . $data['interruptible'] . "</p>
+        <p>Materials: " . $data['materials'] . "</p>
+        <p>Week: " . $data['week'] . "</p>
+        <p> Worspace notes: " . $data['workspace_notes'] . " <img src=\"../assets/modify.png\" class=\"tableFunctionsModify\" title=\"Modify maintenance activity\" onClick=\"javascript:window.location.href='modify-maintenance-activity.screen.php?modify=yes&id=" . $data['id'] . "'\"></p>
         <p>Intervention Description: " . $data['description'] . "</p>
         <p>Standard maintenance procedure:</p>
-        <p>Skills Needed: competencies</p></div>";
+        <p>Skills Needed: ";
+    foreach ($data['skills_needed'] as $elements) {
+      echo $elements . "</p>";
+    }
+    echo "</div>";
   }
 
 
   if (isset($_POST['registered']) && isset($_GET['create'])) {
-    //$new_activity = array('site' => $_POST['site'], 'area' => $_POST['area'], 'tipology' => $_POST['tipology'], 'description' => $_POST['description'], 'time' => $_POST['time'], 'interruptible' => $_POST['interruptible'], 'materials' => $_POST['materials'], 'week' => $_POST['week'], 'note' => $_POST['note']);
-    //$response = Api::post_maintenance_activity($new_activity);
-    //$data = json_decode($response, true);
+    $new_activity = array('activity_type' => $_POST['type'], 'site' => $_POST['site'], 'tipology' => $_POST['tipology'], 'description' => $_POST['description'], 'estimated_time' => $_POST['time'], 'interruptible' => $_POST['interruptible'], 'materials' => $_POST['materials'], 'week' => $_POST['week'], 'workspace_notes' => $_POST['note']);
+    $response = Api::post_maintenance_activity($new_activity);
+    $data = json_decode($response, true);
 
     if (isset($data["message"])) {
       echo "<h3 class='error'>" . $data['message'] . "</h3>";
