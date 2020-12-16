@@ -204,14 +204,14 @@ class Api
    * Forward maintenance activity by week
    *
    * @param string $id
-   * The activity's week
+   * The activity's id
    * 
    * @return string|bool
    * The result on success, false on failure.
    */
-  static public function forward_maintenance_activity($week)
+  static public function forward_maintenance_activity($id)
   {
-    return self::get("/maintainer" . "/" . $week . "/availabilities");
+    return self::get("/maintainer" . "/" . $id . "/availabilities");
   }
 
   /**

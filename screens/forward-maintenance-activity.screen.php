@@ -18,7 +18,7 @@
   session_start();
   generate_header1();
   if (isset($_GET['forward'])) {
-    $response = Api::forward_maintenance_activity($_SESSION['week']);
+    $response = Api::forward_maintenance_activity($_SESSION['activity_id']);
     $response = json_decode($response, true);
   }
 
@@ -227,32 +227,29 @@
   <div class="content">
     <div class="tableFunctions"> </div>
     <?php
-    echo "
-<table class='table3'  border='1'>
-<caption>
-<h3>Maintainer Availability </h3> </caption>
+    echo " <table class='table3'  border='1'>
+        <caption><h3>Maintainer Availability </h3> </caption>
 
  <tr>
  
  <th> Maintainer </th>
  <th> Skills </th>";
     $day1 = "monday";
-    echo "<th>$day1</th>";
+    echo "<th>" . $day1 . "</th>";
     $day2 = "tuesday";
-    echo "<th>$day2</th>";
+    echo "<th>" . $day2 . "</th>";
     $day3 = "wednesday";
-    echo "<th>$day3</th>";
+    echo "<th>" . $day3 . "</th>";
     $day4 = "thursday";
-    echo "<th>$day4</th>";
+    echo "<th>" . $day4 . "</th>";
     $day5 = "friday";
-    echo "<th>$day5</th>";
+    echo "<th>" . $day5 . "</th>";
     $day6 = "saturday";
-    echo "<th>$day6</th>";
+    echo "<th>" . $day6 . "</th>";
     $day7 = "sunday";
-    echo "<th>$day7</th>
- 
- 
- </tr>";
+    echo "<th>" . $day7 . "</th>";
+
+    echo "</tr>";
 
     foreach ($response['rows'] as $_ => $data) {
       $_SESSION['username'] = $data['user']['username'];
@@ -260,64 +257,66 @@
         <h2 style='text-align:center'> Maintenance Activity Information </h2> 
         <p>Week number: " . $data['week'] . "</p>
         <tr>
-        <td style='text-align:center; width:10%;'>" . $data['user']['username'] . "</td>
-       
+        <td style='text-align:center; width:10%;'>" . $_SESSION['username'] . "</td>";
 
-       <td style='text-align:center; width:10%; '" . $color8 . ">" . $data['skill_compliance'] . "</td>";
+
+      echo "<td " . $color8 . ">" . $data['skill_compliance'] . "</td>";
 
       echo " <td " . $color1 . " 'class=\"clickable-row\"";
       if ($data['weekly_percentage_availability']['monday'] != 0) {
-        echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes&week=" . $data['week'] . "&week_day=" . $day1 . "'\">" . $data['weekly_percentage_availability']['monday'] . "</td>";
+        echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes&activity_id=" . $_SESSION['activity_id'] . "&week_day=" . $day1 . "'\">" . $data['weekly_percentage_availability']['monday'] . "</td>";
       } else {
         echo "'\">" . $data['weekly_percentage_availability']['monday'] . "</td>";
       }
 
       echo " <td " . $color2 . " 'class=\"clickable-row\"";
       if ($data['weekly_percentage_availability']['tuesday'] != 0) {
-        echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes&week=" . $data['week'] ."&week_day=".$day2 . "'\"</td>". $data['weekly_percentage_availability']['tuesday'] . "</td>";
+        echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes&activity_id=" . $_SESSION['activity_id'] . "&week_day=" . $day2 . "'\">" . $data['weekly_percentage_availability']['tuesday'] . "</td>";
       } else {
         echo "'\">" . $data['weekly_percentage_availability']['tuesday'] . "</td>";
       }
 
       echo " <td " . $color3 . " 'class=\"clickable-row\"";
       if ($data['weekly_percentage_availability']['wednesday'] != 0) {
-        echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes&week=" . $data['week'] ."&week_day=".$day3 . "'\"</td>". $data['weekly_percentage_availability']['wednesday'] . "</td>";
+        echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes&activity_id=" . $_SESSION['activity_id'] . "&week_day=" . $day3 . "'\">" . $data['weekly_percentage_availability']['wednesday'] . "</td>";
         echo "'\">" . $data['weekly_percentage_availability']['wednesday'] . "</td>";
       }
 
       echo " <td " . $color4 . " 'class=\"clickable-row\"";
       if ($data['weekly_percentage_availability']['thursday'] != 0) {
-        echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes&week=" . $data['week'] ."&week_day=".$day4 . "'\"</td>". $data['weekly_percentage_availability']['thursday'] . "</td>";
+        echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes&activity_id=" . $_SESSION['activity_id'] . "&week_day=" . $day4 . "'\">" . $data['weekly_percentage_availability']['thursday'] . "</td>";
       } else {
         echo "'\">" . $data['weekly_percentage_availability']['thursday'] . "</td>";
       }
 
       echo " <td " . $color5 . " 'class=\"clickable-row\"";
       if ($data['weekly_percentage_availability']['friday'] != 0) {
-        echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes&week=" . $data['week'] ."&week_day=".$day5 . "'\"</td>". $data['weekly_percentage_availability']['friday'] . "</td>";
+        echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes&activity_id=" . $_SESSION['activity_id'] . "&week_day=" . $day5 . "'\">" . $data['weekly_percentage_availability']['friday'] . "</td>";
       } else {
         echo "'\">" . $data['weekly_percentage_availability']['friday'] . "</td>";
       }
 
       echo " <td " . $color6 . " 'class=\"clickable-row\"";
       if ($data['weekly_percentage_availability']['saturday'] != 0) {
-        echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes&week=" . $data['week'] ."&week_day=".$day6 . "'\"</td>". $data['weekly_percentage_availability']['saturday'] . "</td>";
+        echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes&activity_id=" . $_SESSION['week'] = $data['week']['activity_id'] . "&week_day=" . $day6 . "'\">" . $data['weekly_percentage_availability']['saturday'] . "</td>";
       } else {
         echo "'\">" . $data['weekly_percentage_availability']['saturday'] . "</td>";
       }
 
       echo " <td " . $color7 . " 'class=\"clickable-row\"";
       if ($data['weekly_percentage_availability']['sunday'] != 0) {
-        echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes&week=" . $data['week'] ."&week_day=".$day7 . "'\"</td>". $data['weekly_percentage_availability']['sunday'] . "</td>";
+        echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes&activity_id=" . $_SESSION['week'] = $data['week']['activity_id'] . "&week_day=" . $day7 . "'\">" . $data['weekly_percentage_availability']['sunday'] . "</td>";
       } else {
         echo "'\">" . $data['weekly_percentage_availability']['sunday'] . "</td>";
       }
 
 
-      echo " </tr>  
-        </td>
+      echo " 
        </tr></table>";
     }
+
+
+
 
     if (isset($_GET['current_page']) && isset($_GET['page_size'])) {
 
@@ -362,7 +361,7 @@
     }
 
 
-    echo " </tr>  
+    echo " 
          </td>
         </tr></table>";
     ?>

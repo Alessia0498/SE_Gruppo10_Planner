@@ -10,9 +10,11 @@
     <meta charset="utf-8" />
 
     <script type="text/javascript">
-        function show_message() {
+        function show_message_assign() {
             if (confirm("Are you sure you want assign at this maintainer?")) {
+                self.location = 'assign-maintenance-activity.screen.php?assign=yes';
                 return true;
+
             }
             self.location = 'list-maintenance-activity.screen.php';
             return false;
@@ -29,8 +31,8 @@
 
     session_start();
     generate_header1();
-    if (isset($_GET['send']) && isset($_GET['week']) && isset($_GET['week_day'])) {
-        $week = array('week' => $_GET['week'], 'week_day' => $_GET['week_day']);
+    if (isset($_GET['send']) && isset($_GET['activity_id']) && isset($_GET['week_day'])) {
+        $week = array('activity_id' => $_GET['activity_id'], 'week_day' => $_GET['week_day']);
         $response = Api::availability($_SESSION['username'], $week);
         $response = json_decode($response, true);;
 
@@ -97,23 +99,10 @@
             foreach ($response as $_ => $data) {
                 echo " <td " . $color0 . " 'class=\"clickable-row\"";
                 if ($data != 0) {
-                    echo "onclick=\"return show_message_assign();\" onClick=\"javascript:window.location.href='assign-maintenance-activity.screen.php?assign=yes'\">" . $data . "min</td>";
+                    echo "onclick=\"return show_message_assign();\" >" . $data . "min</td>";
                 } else {
                     echo "'\">" . $data . "min</td>";
                 }
-
-
-
-                /*
-                echo " <td " . $color0 . "  'class=\"clickable-row\" onClick=\"javascript:window.location.href='" . $_SERVER['PHP_SELF'] . "?availability=" . $_GET['availability'] . "&availability_time=" . $maintainer['min1'] . "'\">" . $data . "min</td>
-        <td " . $color0 . " 'class=\"clickable-row\" onClick=\"javascript:window.location.href='" . $_SERVER['PHP_SELF'] . "?availability=" . $_GET['availability'] . "&availability_time=" . $maintainer['min2'] . "'\">" . $data['9'] . "min</td>
-        <td " . $color0 . "   'class=\"clickable-row\" onClick=\"javascript:window.location.href='" . $_SERVER['PHP_SELF'] . "?availability=" . $_GET['availability'] . "&availability_time=" . $maintainer['min3'] . "'\">" . $data['10'] . "min</td>
-        <td " . $color0 . "  'class=\"clickable-row\" onClick=\"javascript:window.location.href='" . $_SERVER['PHP_SELF'] . "?availability=" . $_GET['availability'] . "&availability_time=" . $maintainer['min4'] . "'\">" . $data['11'] . "min</td>
-        <td " . $color0 . "  'class=\"clickable-row\" onClick=\"javascript:window.location.href='" . $_SERVER['PHP_SELF'] . "?availability=" . $_GET['availability'] . "&availability_time=" . $maintainer['min5'] . "'\">" . $data['12'] . "min</td>
-        <td " . $color0 . "  'class=\"clickable-row\" onClick=\"javascript:window.location.href='" . $_SERVER['PHP_SELF'] . "?availability=" . $_GET['availability'] . "&availability_time=" . $maintainer['min6'] . "'\">" . $data['13'] . "min</td>
-        <td  " . $color0 . " 'class=\"clickable-row\" onClick=\"javascript:window.location.href='" . $_SERVER['PHP_SELF'] . "?availability=" . $_GET['availability'] . "&availability_time=" . $maintainer['min7'] . "'\">" . $data['14'] . "min</td>
-        <td  " . $color0 . " 'class=\"clickable-row\" onClick=\"javascript:window.location.href='" . $_SERVER['PHP_SELF'] . "?availability=" . $_GET['availability'] . "&availability_time=" . $maintainer['min7'] . "'\">" . $data['15'] . "min</td>
-      */
             }
 
             echo " </tr>  
@@ -122,13 +111,7 @@
             ?>
         </div>
 
-        <div class="tableFunctionsSend">
-            <div class="tableFunctionsSend"></div>
 
-            <a href='view-maintenance-activity.screen.php?send=yes/activity/" "/assign?username="'>
-                <img src="../assets/send.png" class="image1" title="Send maintenance activity to maintainer">
-            </a>
-        </div>
 
     <?php
 

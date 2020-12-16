@@ -31,7 +31,7 @@
   ?>
 
   <?php
- 
+
   if (isset($_GET['activity_id']) && !isset($_POST['save'])) {
     $response = Api::get_maintenance_activity($_GET['activity_id']);
     $data = json_decode($response, true);
@@ -43,7 +43,8 @@
         <img src="../assets/iconBucket.jpg" class="image1" title="Delete maintenance activity" onclick="return show_message();">
       </a>
     </div>
-    <?php $_SESSION['week'] = $data['week'] ?>
+    <?php $_SESSION['week'] = $data['week'];
+    $_SESSION['activity_id'] = $data['activity_id'] ?>
 
     <div class="tableFunctionsForward">
       <div class="tableFunctionsFloater"></div>
