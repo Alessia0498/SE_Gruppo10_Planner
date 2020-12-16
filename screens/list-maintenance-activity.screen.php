@@ -96,11 +96,11 @@
 
 
             echo "  <tbody>
-          <tr class=\"clickable-row\" onClick=\"javascript:window.location.href='view-maintenance-activity.screen.php?id=" . $data['id'] . "'\">
-            <td width='17%' height='100%' align='center'>" . $response['activity_id'] . "</td>
-            <td width='17%' height='100%' align='center'>" . $response['site'] . "</td>
-            <td width='17%' height='100%' align='center'>" . $response['tipology'] . "</td> 
-            <td width='17%' height='100%' align='center'>" . $response['estimated_time'] . "</td>   
+          <tr class=\"clickable-row\" onClick=\"javascript:window.location.href='view-maintenance-activity.screen.php?id=" . $data['activity_id'] . "'\">
+            <td width='17%' height='100%' align='center'>" . $data['activity_id'] . "</td>
+            <td width='17%' height='100%' align='center'>" . $data['site'] . "</td>
+            <td width='17%' height='100%' align='center'>" . $data['tipology'] . "</td> 
+            <td width='17%' height='100%' align='center'>" . $data['estimated_time'] . "</td>   
           </tr>
         </tbody>";
           }
@@ -144,11 +144,11 @@
 
 
           echo "  <tbody>
-        <tr class=\"clickable-row\" onClick=\"javascript:window.location.href='view-maintenance-activity.screen.php?id=" . $data['id'] . "'\">
-          <td width='17%' height='100%' align='center'>" . $data['id'] . "</td>
-          <td width='17%' height='100%' align='center'>" . $data['area'] . "</td>
+        <tr class=\"clickable-row\" onClick=\"javascript:window.location.href='view-maintenance-activity.screen.php?id=" . $data['activity_id'] . "'\">
+          <td width='17%' height='100%' align='center'>" . $data['activity_id'] . "</td>
+          <td width='17%' height='100%' align='center'>" . $data['site'] . "</td>
           <td width='17%' height='100%' align='center'>" . $data['tipology'] . "</td> 
-          <td width='17%' height='100%' align='center'>" . $data['eit'] . "</td>   
+          <td width='17%' height='100%' align='center'>" . $data['estimated_time'] . "</td>   
         </tr>
       </tbody>";
           // }
