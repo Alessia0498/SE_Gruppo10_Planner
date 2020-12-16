@@ -298,14 +298,14 @@
 
       echo " <td " . $color6 . " 'class=\"clickable-row\"";
       if ($data['weekly_percentage_availability']['saturday'] != 0) {
-        echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes&activity_id=" . $_SESSION['week'] = $data['week']['activity_id'] . "&week_day=" . $day6 . "'\">" . $data['weekly_percentage_availability']['saturday'] . "</td>";
+        echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes&activity_id=" . $_SESSION['activity_id'] . "&week_day=" . $day6 . "'\">" . $data['weekly_percentage_availability']['saturday'] . "</td>";
       } else {
         echo "'\">" . $data['weekly_percentage_availability']['saturday'] . "</td>";
       }
 
       echo " <td " . $color7 . " 'class=\"clickable-row\"";
       if ($data['weekly_percentage_availability']['sunday'] != 0) {
-        echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes&activity_id=" . $_SESSION['week'] = $data['week']['activity_id'] . "&week_day=" . $day7 . "'\">" . $data['weekly_percentage_availability']['sunday'] . "</td>";
+        echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes&activity_id=" . $_SESSION['activity_id'] . "&week_day=" . $day7 . "'\">" . $data['weekly_percentage_availability']['sunday'] . "</td>";
       } else {
         echo "'\">" . $data['weekly_percentage_availability']['sunday'] . "</td>";
       }
