@@ -49,7 +49,7 @@
     }
 
 
-    
+
     switch ($data['weekly_percentage_availability']['tuesday']) {
       case 0:
         $color2 = ("style=\"background:red; text-align:center; width:10%;\"");
@@ -73,7 +73,7 @@
         break;
     }
 
-    
+
     switch ($data['weekly_percentage_availability']['wednesday']) {
       case 0:
         $color3 = ("style=\"background:red; text-align:center; width:10%;\"");
@@ -97,7 +97,7 @@
         break;
     }
 
-    
+
     switch ($data['weekly_percentage_availability']['thursday']) {
       case 0:
         $color4 = ("style=\"background:red; text-align:center; width:10%;\"");
@@ -121,7 +121,7 @@
         break;
     }
 
-    
+
     switch ($data['weekly_percentage_availability']['friday']) {
       case 0:
         $color5 = ("style=\"background:red; text-align:center; width:10%;\"");
@@ -145,7 +145,7 @@
         break;
     }
 
-    
+
     switch ($data['weekly_percentage_availability']['saturday']) {
       case 0:
         $color6 = ("style=\"background:red; text-align:center; width:10%;\"");
@@ -169,7 +169,7 @@
         break;
     }
 
-    
+
     switch ($data['weekly_percentage_availability']['sunday']) {
       case 0:
         $color7 = ("style=\"background:red; text-align:center; width:10%;\"");
@@ -236,14 +236,22 @@
  
  <th> Maintainer </th>
  <th> Skills </th>";
-    $day = "monday";
-    echo "<th>$day</th>
- <th>Tuesday</th>
- <th>Wednesday</th>
- <th>Thursday</th>
- <th>Friday</th>
- <th>Saturday</th>
- <th>Sunday</th>
+    $day1 = "monday";
+    echo "<th>$day1</th>";
+    $day2 = "tuesday";
+    echo "<th>$day2</th>";
+    $day3 = "wednesday";
+    echo "<th>$day3</th>";
+    $day4 = "thursday";
+    echo "<th>$day4</th>";
+    $day5 = "friday";
+    echo "<th>$day5</th>";
+    $day6 = "saturday";
+    echo "<th>$day6</th>";
+    $day7 = "sunday";
+    echo "<th>$day7</th>
+ 
+ 
  </tr>";
 
     foreach ($response['rows'] as $_ => $data) {

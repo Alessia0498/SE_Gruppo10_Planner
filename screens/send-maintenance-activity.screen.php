@@ -8,6 +8,18 @@
     <meta name="content" content="Send Maintenance Activity Screen" />
     <link rel="icon" href="../assets/service.jpg" type="image/jpg" />
     <meta charset="utf-8" />
+
+    <script type="text/javascript">
+        function show_message() {
+            if (confirm("Are you sure you want assign at this maintainer?")) {
+                return true;
+            }
+            self.location = 'list-maintenance-activity.screen.php';
+            return false;
+        }
+    </script>
+
+
 </head>
 
 <body>
@@ -85,7 +97,7 @@
             foreach ($response as $_ => $data) {
                 echo " <td " . $color0 . " 'class=\"clickable-row\"";
                 if ($data != 0) {
-                    echo "onClick=\"javascript:window.location.href=''\">" . $data . "min</td>";
+                    echo "onclick=\"return show_message_assign();\" onClick=\"javascript:window.location.href='assign-maintenance-activity.screen.php?assign=yes'\">" . $data . "min</td>";
                 } else {
                     echo "'\">" . $data . "min</td>";
                 }
