@@ -63,6 +63,7 @@
     }
 
 
+
     switch ($data['skill_compliance']) {
       case 0:
         $color7 = ("style=\"background:red; text-align:center; width:10%;\"");

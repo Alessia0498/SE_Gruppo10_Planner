@@ -18,16 +18,17 @@
     session_start();
     generate_header1();
     if (isset($_GET['send']) && isset($_GET['week']) && isset($_GET['week_day'])) {
-
-        $response = Api::availability($_SESSION['username']);
+        $week = array('week' => $_GET['week'], 'week_day' => $_GET['week_day']);
+        $response = Api::availability($_SESSION['username'], $week);
         $response = json_decode($response, true);
         var_dump($response);
 
 
 
-        /*
-        foreach ($response as $_ => $data) {
-            switch () {
+
+        foreach ($response as  $data) {
+
+            switch ($data) {
                 case 0:
                     $color0 = ("style=\"background:red; text-align:center; width:10%;\"");
                     break;
@@ -36,16 +37,16 @@
                     $color0 = ("style=\"background:orange; text-align:center; width:10%;\"");
                     break;
 
-                case 50:
+                case 35:
                     $color0 = ("style=\"background:yellow; text-align:center; width:10%;\"");
                     break;
 
 
-                case 80:
+                case 50:
                     $color0 = ("style=\"background:#8cff40; text-align:center; width:10%;\"");
                     break;
 
-                case 100:
+                case 60:
                     $color0 = ("style=\"background:green; text-align:center; width:10%;\"");
                     break;
             }
@@ -113,17 +114,21 @@
         <th> Availability  <br> 9.00-10.00</th>
         <th> Availability  <br>10.00-11.00</th>
         <th> Availability  <br>11.00-12.00</th>
+        <th> Availability  <br>12.00-13.00</th>
+        <th> Availability  <br>13.00-14.00</th>
         <th> Availability  <br>14.00-15.00</th>
         <th> Availability  <br>15.00-16.00</th>
-        <th> Availability  <br>16.00-17.00</th>
         </tr>";
 
 
-            foreach ($response as $_ => $data) {
-                echo "  <td style='text-align:center;  width:10%;'> " . $_SESSION['username'] . "</td>";
-                /* <td " . $color7 . " > " . $maintainer['skills'] . "/" . $skills . "</td> */
 
+            echo " <tr> <td style='text-align:center;  width:10%;'> " . $_SESSION['username'] . "</td>";
+            /* <td " . $color7 . " > " . $maintainer['skills'] . "/" . $skills . "</td> */
+            foreach ($response as $_ => $data) {
                 echo " <td " . $color0 . "  'class=\"clickable-row\" onClick=\"javascript:window.location.href=''\">" . $data . "min</td>";
+
+
+
                 /*
                 echo " <td " . $color0 . "  'class=\"clickable-row\" onClick=\"javascript:window.location.href='" . $_SERVER['PHP_SELF'] . "?availability=" . $_GET['availability'] . "&availability_time=" . $maintainer['min1'] . "'\">" . $data . "min</td>
         <td " . $color0 . " 'class=\"clickable-row\" onClick=\"javascript:window.location.href='" . $_SERVER['PHP_SELF'] . "?availability=" . $_GET['availability'] . "&availability_time=" . $maintainer['min2'] . "'\">" . $data['9'] . "min</td>
@@ -134,12 +139,11 @@
         <td  " . $color0 . " 'class=\"clickable-row\" onClick=\"javascript:window.location.href='" . $_SERVER['PHP_SELF'] . "?availability=" . $_GET['availability'] . "&availability_time=" . $maintainer['min7'] . "'\">" . $data['14'] . "min</td>
         <td  " . $color0 . " 'class=\"clickable-row\" onClick=\"javascript:window.location.href='" . $_SERVER['PHP_SELF'] . "?availability=" . $_GET['availability'] . "&availability_time=" . $maintainer['min7'] . "'\">" . $data['15'] . "min</td>
       */
-                echo " </tr>  
-         </tbody>
-         </table>
-         </td>
-        </tr></table>";
             }
+
+            echo " </tr>  
+         </tbody>
+         </table>";
             ?>
         </div>
 

@@ -242,9 +242,9 @@ class Api
    * @return string|bool
    * The result on success, false on failure.
    */
-  static public function availability($username)
+  static public function availability($username, $week)
   {
-    return self::get("/maintainer" . "/" . $username . "/availability");
+    return self::get("/maintainer" . "/" . $username . "/availability", $week);
   }
 
 
