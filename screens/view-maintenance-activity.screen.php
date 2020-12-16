@@ -52,28 +52,28 @@
         <img src="../assets/forward.png" class="image1" title="Forward maintenance activity">
       </a>
     </div>
-    <div class="meta">
+    <div>
       <?php
 
 
       echo "
         <h2 style='text-align:center'> Maintenance Activity Information </h2>
        
-        <p> Id: " . $data['activity_id'] . "</p>
-        <p>Type: " . $data['activity_type'] . "</p>
-        <p>Site: " . $data['site'] . "</p>
-        <p>Tipology: " . $data['typology'] . "</p>
-        <p>Estimated Intervention Time: " . $data['estimated_time'] . "</p>
-        <p>Interruptible: " . $data['interruptible'] . "</p>
-        <p>Materials: " . $data['materials'] . "</p>
-        <p>Week: " . $data['week'] . "</p>
-        <p> Worspace notes: " . $data['workspace_notes'] . " <img src=\"../assets/modify.png\" class=\"tableFunctionsModify\" title=\"Modify maintenance activity\" onClick=\"javascript:window.location.href='modify-maintenance-activity.screen.php?modify=yes&activity_id=" . $data['activity_id'] . "'\"></p>
-        <p>Intervention Description: " . $data['description'] . "</p>
-        <p>Standard maintenance procedure:</p>
-        <p>Skills Needed: </p> ";
+        <h3 style='display:inline'> Id: </h3> <p style='display:inline'> " . $data['activity_id'] . "</p> </br>
+        <br> <h3 style='display:inline'>Type: </h3> <p style='display:inline'> " . $data['activity_type'] . "</p> </br>
+        <br> <h3 style='display:inline'>Site: </h3><p style='display:inline'>" . $data['site'] . "</p> </br>
+        <br> <h3 style='display:inline'>Tipology:</h3><p style='display:inline'> " . $data['typology'] . "</p> </br>
+        <br> <h3 style='display:inline'>Estimated Intervention Time:</h3><p style='display:inline'> " . $data['estimated_time'] . "</p> </br>
+        <br> <h3 style='display:inline'>Interruptible:</h3><p style='display:inline'> " . $data['interruptible'] . "</p> </br>
+        <br> <h3 style='display:inline'>Materials: </h3><p style='display:inline'>" . $data['materials'] . "</p> </br>
+        <br> <h3 style='display:inline'>Week:</h3><p style='display:inline'> " . $data['week'] . "</p> </br>
+        <br> <h3 style='display:inline'> Worspace notes: </h3><p style='display:inline'> " . $data['workspace_notes'] . " <img src=\"../assets/modify.png\" class=\"tableFunctionsModify\" title=\"Modify maintenance activity\" onClick=\"javascript:window.location.href='modify-maintenance-activity.screen.php?modify=yes&activity_id=" . $data['activity_id'] . "'\"></p> </br>
+        <br> <h3 style='display:inline'>Intervention Description: </h3> <p style='display:inline'> " . $data['description'] . "</p> </br>
+        <br> <h3 style='display:inline'>Skills Needed: </h3> <ul>";
       foreach ($data['skills_needed'] as $elements) {
-        echo "<p>" . $elements . "</p>";
-      } ?>
+        echo " <li>" .$elements. "</li> ";
+       }
+       echo " </ul> " ;?>
     </div>
   <?php }
 
@@ -132,24 +132,26 @@
       echo '<h3 style="text-align: center; color: green">' . $message . '</h3>';
 
       echo "
-      <h2 style='text-align:center'>Activity  Information Modified In</h2> 
-      <p style='text-align:center'> Id: " . $data['activity_id'] . "</p>
-      <p style='text-align:center'>Type: " . $data['activity_type'] . "</p>
-      <p style='text-align:center'>Site: " . $data['site'] . "</p>
-      <p style='text-align:center'>Tipology: " . $data['typology'] . "</p>
-      <p style='text-align:center'>Estimated Intervention Time: " . $data['estimated_time'] . "</p>
-      <p style='text-align:center'>Interruptible: " . $data['interruptible'] . "</p>
-      <p style='text-align:center'>Materials: " . $data['materials'] . "</p>
-      <p style='text-align:center'>Week: " . $data['week'] . "</p>
-      <p style='text-align:center'> Worspace notes: " . $data['workspace_notes'] . "</p>
-      <p style='text-align:center'>Intervention Description: " . $data['description'] . "</p>
-      <p style='text-align:center'>Standard maintenance procedure:</p>
-      <p style='text-align:center'>Skills Needed: competencies</p>";
+      <h3 style='display:inline'> Id: </h3> <p style='display:inline'> " . $data['activity_id'] . "</p> </br>
+      <br> <h3 style='display:inline'>Type: </h3> <p style='display:inline'> " . $data['activity_type'] . "</p> </br>
+      <br> <h3 style='display:inline'>Site: </h3><p style='display:inline'>" . $data['site'] . "</p> </br>
+      <br> <h3 style='display:inline'>Tipology:</h3><p style='display:inline'> " . $data['typology'] . "</p> </br>
+      <br> <h3 style='display:inline'>Estimated Intervention Time:</h3><p style='display:inline'> " . $data['estimated_time'] . "</p> </br>
+      <br> <h3 style='display:inline'>Interruptible:</h3><p style='display:inline'> " . $data['interruptible'] . "</p> </br>
+      <br> <h3 style='display:inline'>Materials: </h3><p style='display:inline'>" . $data['materials'] . "</p> </br>
+      <br> <h3 style='display:inline'>Week:</h3><p style='display:inline'> " . $data['week'] . "</p> </br>
+      <br> <h3 style='display:inline'> Worspace notes: </h3><p style='display:inline'> " . $data['workspace_notes'] . "</p> </br>
+      <br> <h3 style='display:inline'>Intervention Description: </h3> <p style='display:inline'> " . $data['description'] . "</p> </br>
+      <br> <h3 style='display:inline'>Skills Needed: </h3> <ul>";
+    foreach ($data['skills_needed'] as $elements) {
+      echo " <li>" .$elements. "</li> ";
+     }
+     echo " </ul> " ;
+     
+    
     }
   }
-  back2();
-
-  ?>
+ back2();?>
 
 
 
