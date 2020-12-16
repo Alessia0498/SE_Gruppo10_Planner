@@ -235,7 +235,7 @@ class Api
   }
 
   /**
-   * Avability of  maintainer chosen 
+   * Availability of  maintainer chosen 
    *
    *
    * 
@@ -247,6 +247,19 @@ class Api
     return self::get("/maintainer" . "/" . $username . "/availability");
   }
 
+
+  /**
+   * Assign of activity chosen 
+   *
+   *
+   * 
+   * @return string|bool
+   * The result on success, false on failure.
+   */
+  static public function assign($id, $username)
+  {
+    return self::get("/activity" . "/" . $id . "/assign?username=" . $username);
+  }
 
   /**
    * 

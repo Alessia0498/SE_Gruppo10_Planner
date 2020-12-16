@@ -104,8 +104,9 @@
  <tr>
  
  <th> Maintainer </th>
- <th> Skills </th>
- <th> Availability  Monday</th>
+ <th> Skills </th>";
+    $day = "monday";
+    echo "<th> Availability  $day</th>
  <th> Availability  Tuesday</th>
  <th> Availability  Wednesday</th>
  <th> Availability  Thursday</th>
@@ -130,7 +131,7 @@
 
       echo " <td " . $color1 . " 'class=\"clickable-row\"";
       if ($data['weekly_percentage_availability']['monday'] != 0) {
-        echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes'\">" . $data['weekly_percentage_availability']['monday'] . "</td>";
+        echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes&week=" . $data['week'] . "&week_day=" . $day . "'\">" . $data['weekly_percentage_availability']['monday'] . "</td>";
       } else {
         echo "'\">" . $data['weekly_percentage_availability']['monday'] . "</td>";
       }
@@ -139,7 +140,7 @@
       if ($data['weekly_percentage_availability']['tuesday'] != 0) {
         echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes'\">" . $data['weekly_percentage_availability']['tuesday'] . "</td>";
       } else {
-        echo "'\">" . $data['weekly_percentage_availability']['tuesda'] . "</td>";
+        echo "'\">" . $data['weekly_percentage_availability']['tuesday'] . "</td>";
       }
 
       echo " <td " . $color1 . " 'class=\"clickable-row\"";

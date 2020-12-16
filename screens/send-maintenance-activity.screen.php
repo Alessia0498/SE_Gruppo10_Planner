@@ -17,24 +17,15 @@
 
     session_start();
     generate_header1();
-    if (isset($_GET['send'])) {
+    if (isset($_GET['send']) && isset($_GET['week']) && isset($_GET['week_day'])) {
+
         $response = Api::availability($_SESSION['username']);
         $response = json_decode($response, true);
+        var_dump($response);
 
 
-        /*  $data =  array(
-            'id' => 1, 'area' => 'zone1', 'tipology' => 'electrical', 'eit' => '30min', 'time' => '30min',
-            'week' => 3, 'note' => 'notes', 'description' => 'description', 'day' => 18
-        );
 
-        $skills = 5;
-
-        $maintainer =  array(
-            'name' => 'Pippo', 'skills' => 1, 'min1' => 30, 'min2' => 35,
-            'min3' => 60, 'min4' => 50, 'min5' => 50, 'min6' => 40, 'min7' => 60
-        );
-        // }  */
-
+        /*
         foreach ($response as $_ => $data) {
             switch () {
                 case 0:
@@ -155,7 +146,7 @@
         <div class="tableFunctionsSend">
             <div class="tableFunctionsSend"></div>
 
-            <a href="view-maintenance-activity.screen.php?send=yes">
+            <a href='view-maintenance-activity.screen.php?send=yes/activity/" "/assign?username="'>
                 <img src="../assets/send.png" class="image1" title="Send maintenance activity to maintainer">
             </a>
         </div>
