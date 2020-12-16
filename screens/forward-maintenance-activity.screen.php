@@ -21,19 +21,6 @@
     $response = Api::forward_maintenance_activity($_SESSION['week']);
     $response = json_decode($response, true);
 
-
-    //var_dump($response);
-    /*   $data =  array(
-      'id' => 1, 'area' => 'zone1', 'tipology' => 'electrical', 'eit' => '30min', 'time' => '30min',
-      'week' => 3, 'note' => 'notes', 'description' => 'description', 'note' => 'notes'
-    );*/
-
-    /*$skills = 5;
-    $competencies = array('competence1', 'competence2', 'competence3');
-    $maintainer =  array(
-      'name' => 'Pippo', 'skills' => 1, 'percentage1' => 80, 'percentage2' => 100,
-      'percentage3' => 20, 'percentage4' => 20, 'percentage5' => 50, 'percentage6' => 20, 'percentage7' =>0,
-    );*/
   }
 
 
@@ -61,7 +48,6 @@
         $color1 = ("style=\"background:green; text-align:center; width:10%; cursor:pointer;\"");
         break;
     }
-
 
 
     switch ($data['skill_compliance']) {
@@ -224,91 +210,6 @@
       }
     }
 
-    /* <br>
-
-        <table class='table3'  border='1'>
-       <caption>
-       <h3>Maintainer Availability </h3> </caption>
-
-        <tr>
-        <th>Skills Needed</th>
-        <th> Maintainer </th>
-        <th> Skills </th>
-        <th> Availability  Monday</th>
-        <th> Availability  Tuesday</th>
-        <th> Availability  Wednesday</th>
-        <th> Availability  Thursday</th>
-        <th> Availability  Friday</th>
-        <th> Availability  Saturday</th>
-        <th> Availability  Sunday</th>
-        </tr>
-
-        
-        <td style='width:10%; text-align:center;'>
-      
-        <p>" . $competencies[0] . "</p>
-        <p>" . $competencies[1] . "</p>
-        <p>" . $competencies[2] . "</p>
-       
-        </td>
-      
-    
-        
-        <td style='text-align:center;  width:10%;'> " . $maintainer['name'] . "</td>
-        <td " . $color7 . " > " . $maintainer['skills'] . "/" . $skills . "</td> 
-
-
-      
-        <td " . $color . "  'class=\"clickable-row\" ";
-    if ($maintainer['percentage1'] != 0) {
-      echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage1'] . "'\">" . $maintainer['percentage1'] . "%</td>";
-    } else {
-      echo "'\">" . $maintainer['percentage1'] . "%</td>";
-    }
-
-
-    echo " <td " . $color1 . " 'class=\"clickable-row\" ";
-    if ($maintainer['percentage2'] != 0) {
-      echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage2'] . "'\">" . $maintainer['percentage2'] . "%</td>";
-    } else {
-      echo "'\">" . $maintainer['percentage2'] . "%</td>";
-    }
-
-
-    echo "<td " . $color2 . "   'class=\"clickable-row\" ";
-    if ($maintainer['percentage3'] != 0) {
-      echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage3'] . "'\">" . $maintainer['percentage3'] . "%</td>";
-    } else {
-      echo "'\">" . $maintainer['percentage3'] . "%</td>";
-    }
-
-    echo " <td " . $color3 . "  'class=\"clickable-row\"";
-    if ($maintainer['percentage4'] != 0) {
-      echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage4'] . "'\">" . $maintainer['percentage4'] . "%</td>";
-    } else {
-      echo "'\">" . $maintainer['percentage4'] . "%</td>";
-    }
-
-    echo "  <td " . $color4 . "  'class=\"clickable-row\"";
-    if ($maintainer['percentage5'] != 0) {
-      echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage5'] . "'\">" . $maintainer['percentage5'] . "%</td>";
-    } else {
-      echo "'\">" . $maintainer['percentage5'] . "%</td>";
-    }
-
-    echo "   <td " . $color5 . "  'class=\"clickable-row\"";
-    if ($maintainer['percentage6'] != 0) {
-      echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage6'] . "'\">" . $maintainer['percentage6'] . "%</td>";
-    } else {
-      echo "'\">" . $maintainer['percentage6'] . "%</td>";
-    }
-
-    echo "   <td  " . $color6 . " 'class=\"clickable-row\"";
-    if ($maintainer['percentage7'] != 0) {
-      echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?availability=" . $maintainer['percentage7'] . "'\">" . $maintainer['percentage7'] . "%</td>";
-    } else {
-      echo "'\">" . $maintainer['percentage7'] . "%</td>";
-    }*/
 
     echo " </tr>  
          </td>

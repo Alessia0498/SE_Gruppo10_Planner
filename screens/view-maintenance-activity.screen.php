@@ -31,10 +31,7 @@
   ?>
 
   <?php
-  /* $data =  array(
-    'id' => 1, 'area' => 'zone1', 'tipology' => 'electrical', 'eit' => '30min', 'time' => '30min',
-    'week' => 3, 'note' => 'notes', 'description' => 'description'
-  );*/
+ 
   if (isset($_GET['activity_id']) && !isset($_POST['save'])) {
     $response = Api::get_maintenance_activity($_GET['activity_id']);
     $data = json_decode($response, true);

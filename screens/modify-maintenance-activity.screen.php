@@ -21,10 +21,7 @@
   $response = Api::get_maintenance_activity($_GET['activity_id']);
   $data = json_decode($response, true);
 
-  /*$data =  array(
-    'id' => 1, 'area' => 'zone1', 'tipology' => 'electrical', 'eit' => '30min', 'time' => '30min',
-    'week' => 3, 'note' => 'notes', 'description' => 'description', 'type' => 'ua', 'site' => 'site', 'interruptible' => 'yes', 'materials' => 'material1, material2'
-  );*/
+ 
   ?>
 
   <div class="form">
@@ -33,29 +30,21 @@
 
 
       <label for="activity_type"> Activity Type:
-        <!-- <select name="type" id="type" title="Select type">-->
+     
         <?php if ($data['activity_type'] == 'planned') { ?>
           <input type="text" required="required" name="type" id="type" readonly="readonly" value="<?php echo $data['activity_type'] ?>" />
-          <!--  <option value="pa" selected>Planned Activity</option>
-            <option value="ua" readonly>Un-planned Activity (EWO)</option>
-            <option value="ea" readonly>Extra Activity </option>-->
+        
         <?php } ?>
         <?php if ($data['activity_type'] == 'unplanned') { ?>
           <input type="text" required="required" name="type" id="type" readonly="readonly" value="<?php echo $data['activity_type'] ?>" />
-          <!-- <option value="pa">Planned Activity</option>
-          <option value="ua" selected>Un-planned Activity (EWO)</option>
-          <option value="ea">Extra Activity </option>-->
+        
         <?php } ?>
         <?php if ($data['activity_type'] == 'extra_activity') { ?>
           <input type="text" required="required" name="type" id="type" readonly="readonly" value="<?php echo $data['activity_type'] ?>" />
-          <!--<option value="pa">Planned Activity</option>
-          <option value="ua">Un-planned Activity (EWO)</option>
-          <option value="ea" selected>Extra Activity </option>-->
+         
         <?php } ?>
-        <!--</select>-->
+      
       </label>
-
-
 
       <br />
 
@@ -64,55 +53,37 @@
       </label>
 
 
-      <!-- <label for="area"> Area (department):
-        <input type="text" required="required" name="area" id="area" readonly="readonly" value="<?php //echo $data['area'] 
-                                                                                                ?>" />
-      </label>-->
+    
 
 
       <label for="typology"> Activity's tipology:
-        <!--<select name="tipology" id="tipology" readonly="readonly">-->
-
+       
 
         <?php if ($data['typology'] == 'electrical') { ?>
           <input type="text" required="required" name="typology" id="typology" readonly="readonly" value="<?php echo $data['typology'] ?>" />
-          <!--<option value="electrical" selected> Electrical</option>
-            <option value="electronic"> Electronic</option>
-            <option value="hydraulic"> Hydraulic</option>
-            <option value="mechanical"> Mechanical</option>-->
-
+         
         <?php } ?>
 
         <?php if ($data['typology'] == 'electronic') { ?>
           <input type="text" required="required" name="typology" id="typology" readonly="readonly" value="<?php echo $data['typology'] ?>" />
-          <!-- <option value="electrical"> Electrical</option>
-            <option value="electronic" selected> Electronic</option>
-            <option value="hydraulic"> Hydraulic</option>
-            <option value="mechanical"> Mechanical</option>-->
-
+        
         <?php } ?>
 
 
         <?php if ($data['typology'] == 'hydraulic') { ?>
           <input type="text" required="required" name="typology" id="typology" readonly="readonly" value="<?php echo $data['typology'] ?>" />
-          <!-- <option value="electrical"> Electrical</option>
-            <option value="electronic"> Electronic</option>
-            <option value="hydraulic" selected> Hydraulic</option>
-            <option value="mechanical"> Mechanical</option>-->
+        
 
         <?php } ?>
 
 
         <?php if ($data['typology'] == 'mechanical') { ?>
           <input type="text" required="required" name="typology" id="typology" readonly="readonly" value="<?php echo $data['typology'] ?>" />
-          <!--<option value="electrical"> Electrical</option>
-            <option value="electronic"> Electronic</option>
-            <option value="hydraulic"> Hydraulic</option>
-            <option value="mechanical" selected> Mechanical</option>-->
+        
 
         <?php } ?>
 
-        <!--  </select> -->
+      
       </label>
 
 
@@ -131,16 +102,13 @@
         <?php if ($data['interruptible'] == 'yes') { ?>
           <input type="text" required="required" name="interruptible" id="interruptible" readonly="readonly" value="<?php echo $data['interruptible'] ?>" />
 
-          <!--<label for="yes">Yes</label><br>
-      <input type="radio" id="no" name="interruptible" value="no" readonly>
-      <label for="no">No</label><br>-->
+    
         <?php } ?>
 
         <?php if ($data['interruptible'] == 'no') { ?>
-          <!-- <input type="radio" id="yes" name="interruptible" value="yes" readonly="readonly">
-      <label for="yes">Yes</label><br>-->
+         
           <input type="text" required="required" name="interruptible" id="interruptible" readonly="readonly" value="<?php echo $data['interruptible'] ?>" />
-          <!--<label for="no">No</label><br>-->
+        
         <?php } ?>
       </label>
 

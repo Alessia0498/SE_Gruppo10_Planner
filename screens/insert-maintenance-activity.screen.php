@@ -49,12 +49,6 @@
                 <input type="text" required="required" name="site" id="site" placeholder="Enter a site" title="Enter a site" />
             </label>
 
-
-            <!--<label for="area"> Area (department): *
-                <input type="text" required="required" name="area" id="area" placeholder="Enter a area" title="Enter a area" />
-            </label>-->
-
-
             <label for="typology"> Activity's tipology: *
                 <select name="typology" id="typology" title="Select tipology">
                     <option value="electrical"> Electrical</option>

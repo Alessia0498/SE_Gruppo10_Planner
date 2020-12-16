@@ -32,7 +32,7 @@
 
     <div>
       <?php
-      // $data =  array('id' => 1, 'area' => 'zone1', 'tipology' => 'electrical', 'eit' => '30min', 'week' => 3);
+     
       if ($response && !isset($_GET['week'])) {
 
         echo "
@@ -52,10 +52,9 @@
       </thead>";
 
 
-        // if ($response && isset($_POST['week'])) {
-
+        
         foreach ($response['rows'] as $_ => $data) {
-          // if ($_GET['week'] == $data['week']) {
+
 
 
           echo "  <tbody>
@@ -67,7 +66,7 @@
           </tr>
         </tbody>";
         }
-        // }
+       
       }
       echo "</table>";
 
@@ -137,11 +136,10 @@
     </thead>";
 
 
-        //if ($response && $response['rows'] && isset($_POST['week'])) {
+     
 
         foreach ($response['rows'] as $_ => $data) {
-          //  if (isset($_POST['week']) && $_POST['week'] == $data['week']) {
-
+          
 
           echo "  <tbody>
         <tr class=\"clickable-row\" onClick=\"javascript:window.location.href='view-maintenance-activity.screen.php?activity_id=" . $data['activity_id'] . "'\">
