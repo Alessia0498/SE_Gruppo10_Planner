@@ -49,31 +49,176 @@
     }
 
 
-    switch ($data['skill_compliance']) {
+    
+    switch ($data['weekly_percentage_availability']['tuesday']) {
+      case 0:
+        $color2 = ("style=\"background:red; text-align:center; width:10%;\"");
+        break;
+
+      case 20:
+        $color2 = ("style=\"background:orange; text-align:center; width:10%;cursor:pointer;\"");
+        break;
+
+      case 50:
+        $color2 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
+        break;
+
+
+      case 80:
+        $color2 = ("style=\"background:#8cff40; text-align:center; width:10%; cursor:pointer;\"");
+        break;
+
+      case 100:
+        $color2 = ("style=\"background:green; text-align:center; width:10%; cursor:pointer;\"");
+        break;
+    }
+
+    
+    switch ($data['weekly_percentage_availability']['wednesday']) {
+      case 0:
+        $color3 = ("style=\"background:red; text-align:center; width:10%;\"");
+        break;
+
+      case 20:
+        $color3 = ("style=\"background:orange; text-align:center; width:10%;cursor:pointer;\"");
+        break;
+
+      case 50:
+        $color3 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
+        break;
+
+
+      case 80:
+        $color3 = ("style=\"background:#8cff40; text-align:center; width:10%; cursor:pointer;\"");
+        break;
+
+      case 100:
+        $color3 = ("style=\"background:green; text-align:center; width:10%; cursor:pointer;\"");
+        break;
+    }
+
+    
+    switch ($data['weekly_percentage_availability']['thursday']) {
+      case 0:
+        $color4 = ("style=\"background:red; text-align:center; width:10%;\"");
+        break;
+
+      case 20:
+        $color4 = ("style=\"background:orange; text-align:center; width:10%;cursor:pointer;\"");
+        break;
+
+      case 50:
+        $color4 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
+        break;
+
+
+      case 80:
+        $color4 = ("style=\"background:#8cff40; text-align:center; width:10%; cursor:pointer;\"");
+        break;
+
+      case 100:
+        $color4 = ("style=\"background:green; text-align:center; width:10%; cursor:pointer;\"");
+        break;
+    }
+
+    
+    switch ($data['weekly_percentage_availability']['friday']) {
+      case 0:
+        $color5 = ("style=\"background:red; text-align:center; width:10%;\"");
+        break;
+
+      case 20:
+        $color5 = ("style=\"background:orange; text-align:center; width:10%;cursor:pointer;\"");
+        break;
+
+      case 50:
+        $color5 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
+        break;
+
+
+      case 80:
+        $color5 = ("style=\"background:#8cff40; text-align:center; width:10%; cursor:pointer;\"");
+        break;
+
+      case 100:
+        $color5 = ("style=\"background:green; text-align:center; width:10%; cursor:pointer;\"");
+        break;
+    }
+
+    
+    switch ($data['weekly_percentage_availability']['saturday']) {
+      case 0:
+        $color6 = ("style=\"background:red; text-align:center; width:10%;\"");
+        break;
+
+      case 20:
+        $color6 = ("style=\"background:orange; text-align:center; width:10%;cursor:pointer;\"");
+        break;
+
+      case 50:
+        $color6 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
+        break;
+
+
+      case 80:
+        $color6 = ("style=\"background:#8cff40; text-align:center; width:10%; cursor:pointer;\"");
+        break;
+
+      case 100:
+        $color6 = ("style=\"background:green; text-align:center; width:10%; cursor:pointer;\"");
+        break;
+    }
+
+    
+    switch ($data['weekly_percentage_availability']['sunday']) {
       case 0:
         $color7 = ("style=\"background:red; text-align:center; width:10%;\"");
         break;
 
+      case 20:
+        $color7 = ("style=\"background:orange; text-align:center; width:10%;cursor:pointer;\"");
+        break;
+
+      case 50:
+        $color7 = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
+        break;
+
+
+      case 80:
+        $color7 = ("style=\"background:#8cff40; text-align:center; width:10%; cursor:pointer;\"");
+        break;
+
+      case 100:
+        $color7 = ("style=\"background:green; text-align:center; width:10%; cursor:pointer;\"");
+        break;
+    }
+
+
+    switch ($data['skill_compliance']) {
+      case 0:
+        $color8 = ("style=\"background:red; text-align:center; width:10%;\"");
+        break;
+
       case 1:
-        $color7 = ("style=\"background:#ff4d00; text-align:center; width:10%;\"");
+        $color8 = ("style=\"background:#ff4d00; text-align:center; width:10%;\"");
         break;
 
 
       case 2:
-        $color7 = ("style=\"background:orange; text-align:center; width:10%;\"");
+        $color8 = ("style=\"background:orange; text-align:center; width:10%;\"");
         break;
 
       case 3:
-        $color7 = ("style=\"background:yellow; text-align:center; width:10%;\"");
+        $color8 = ("style=\"background:yellow; text-align:center; width:10%;\"");
         break;
 
 
       case 4:
-        $color7 = ("style=\"background:#8cff40; text-align:center; width:10%;\"");
+        $color8 = ("style=\"background:#8cff40; text-align:center; width:10%;\"");
         break;
 
       case 5:
-        $color7 = ("style=\"background:green; text-align:center; width:10%;\"");
+        $color8 = ("style=\"background:green; text-align:center; width:10%;\"");
         break;
     }
   }
@@ -110,7 +255,7 @@
         <td style='text-align:center; width:10%;'>" . $data['user']['username'] . "</td>
        
 
-       <td style='text-align:center; width:10%; '" . $color7 . ">" . $data['skill_compliance'] . "</td>";
+       <td style='text-align:center; width:10%; '" . $color8 . ">" . $data['skill_compliance'] . "</td>";
 
       echo " <td " . $color1 . " 'class=\"clickable-row\"";
       if ($data['weekly_percentage_availability']['monday'] != 0) {
@@ -119,42 +264,42 @@
         echo "'\">" . $data['weekly_percentage_availability']['monday'] . "</td>";
       }
 
-      echo " <td " . $color1 . " 'class=\"clickable-row\"";
+      echo " <td " . $color2 . " 'class=\"clickable-row\"";
       if ($data['weekly_percentage_availability']['tuesday'] != 0) {
         echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes'\">" . $data['weekly_percentage_availability']['tuesday'] . "</td>";
       } else {
         echo "'\">" . $data['weekly_percentage_availability']['tuesday'] . "</td>";
       }
 
-      echo " <td " . $color1 . " 'class=\"clickable-row\"";
+      echo " <td " . $color3 . " 'class=\"clickable-row\"";
       if ($data['weekly_percentage_availability']['wednesday'] != 0) {
         echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes'\">" . $data['weekly_percentage_availability']['wednesday'] . "</td>";
       } else {
         echo "'\">" . $data['weekly_percentage_availability']['wednesday'] . "</td>";
       }
 
-      echo " <td " . $color1 . " 'class=\"clickable-row\"";
+      echo " <td " . $color4 . " 'class=\"clickable-row\"";
       if ($data['weekly_percentage_availability']['thursday'] != 0) {
         echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes'\">" . $data['weekly_percentage_availability']['thursday'] . "</td>";
       } else {
         echo "'\">" . $data['weekly_percentage_availability']['thursday'] . "</td>";
       }
 
-      echo " <td " . $color1 . " 'class=\"clickable-row\"";
+      echo " <td " . $color5 . " 'class=\"clickable-row\"";
       if ($data['weekly_percentage_availability']['friday'] != 0) {
         echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes'\">" . $data['weekly_percentage_availability']['friday'] . "</td>";
       } else {
         echo "'\">" . $data['weekly_percentage_availability']['friday'] . "</td>";
       }
 
-      echo " <td " . $color1 . " 'class=\"clickable-row\"";
+      echo " <td " . $color6 . " 'class=\"clickable-row\"";
       if ($data['weekly_percentage_availability']['saturday'] != 0) {
         echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes'\">" . $data['weekly_percentage_availability']['saturday'] . "</td>";
       } else {
         echo "'\">" . $data['weekly_percentage_availability']['saturday'] . "</td>";
       }
 
-      echo " <td " . $color1 . " 'class=\"clickable-row\"";
+      echo " <td " . $color7 . " 'class=\"clickable-row\"";
       if ($data['weekly_percentage_availability']['sunday'] != 0) {
         echo "onClick=\"javascript:window.location.href='send-maintenance-activity.screen.php?send=yes'\">" . $data['weekly_percentage_availability']['sunday'] . "</td>";
       } else {
