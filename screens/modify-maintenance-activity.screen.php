@@ -21,7 +21,7 @@
   $response = Api::get_maintenance_activity($_GET['activity_id']);
   $data = json_decode($response, true);
 
- 
+
   ?>
 
   <div class="form">
@@ -30,20 +30,20 @@
 
 
       <label for="activity_type"> Activity Type:
-     
+
         <?php if ($data['activity_type'] == 'planned') { ?>
           <input type="text" required="required" name="type" id="type" readonly="readonly" value="<?php echo $data['activity_type'] ?>" />
-        
+
         <?php } ?>
         <?php if ($data['activity_type'] == 'unplanned') { ?>
           <input type="text" required="required" name="type" id="type" readonly="readonly" value="<?php echo $data['activity_type'] ?>" />
-        
+
         <?php } ?>
         <?php if ($data['activity_type'] == 'extra_activity') { ?>
           <input type="text" required="required" name="type" id="type" readonly="readonly" value="<?php echo $data['activity_type'] ?>" />
-         
+
         <?php } ?>
-      
+
       </label>
 
       <br />
@@ -53,37 +53,37 @@
       </label>
 
 
-    
+
 
 
       <label for="typology"> Activity's tipology:
-       
+
 
         <?php if ($data['typology'] == 'electrical') { ?>
           <input type="text" required="required" name="typology" id="typology" readonly="readonly" value="<?php echo $data['typology'] ?>" />
-         
+
         <?php } ?>
 
         <?php if ($data['typology'] == 'electronic') { ?>
           <input type="text" required="required" name="typology" id="typology" readonly="readonly" value="<?php echo $data['typology'] ?>" />
-        
+
         <?php } ?>
 
 
         <?php if ($data['typology'] == 'hydraulic') { ?>
           <input type="text" required="required" name="typology" id="typology" readonly="readonly" value="<?php echo $data['typology'] ?>" />
-        
+
 
         <?php } ?>
 
 
         <?php if ($data['typology'] == 'mechanical') { ?>
           <input type="text" required="required" name="typology" id="typology" readonly="readonly" value="<?php echo $data['typology'] ?>" />
-        
+
 
         <?php } ?>
 
-      
+
       </label>
 
 
@@ -99,17 +99,7 @@
 
 
       <label for="interruptible">Interruptible Activity: <br />
-        <?php if ($data['interruptible'] == 'yes') { ?>
-          <input type="text" required="required" name="interruptible" id="interruptible" readonly="readonly" value="<?php echo $data['interruptible'] ?>" />
-
-    
-        <?php } ?>
-
-        <?php if ($data['interruptible'] == 'no') { ?>
-         
-          <input type="text" required="required" name="interruptible" id="interruptible" readonly="readonly" value="<?php echo $data['interruptible'] ?>" />
-        
-        <?php } ?>
+        <input type="text" required="required" name="interruptible" id="interruptible" readonly="readonly" value="<?php echo $data['interruptible'] ?>" />
       </label>
 
 
