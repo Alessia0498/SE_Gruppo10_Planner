@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Maintenance Activity List</title>
+  <title>Maintenance Activity List!</title>
   <meta name="author" content="gruppo 10" />
   <link rel="stylesheet" type="text/css" href="../index.css" />
   <meta name="content" content="Maintenance Activity List Screen" />
