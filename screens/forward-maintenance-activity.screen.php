@@ -20,13 +20,12 @@
   if (isset($_GET['forward'])) {
     $response = Api::forward_maintenance_activity($_SESSION['week']);
     $response = json_decode($response, true);
-
   }
 
 
   foreach ($response['rows'] as $_ => $data) {
 
-    switch ($data['weekly_percentage_availability']['tuesday']) {
+    switch ($data['weekly_percentage_availability']['monday']) {
       case 0:
         $color1 = ("style=\"background:red; text-align:center; width:10%;\"");
         break;
@@ -101,7 +100,7 @@
  <th>Saturday</th>
  <th>Sunday</th>
  </tr>";
- 
+
     foreach ($response['rows'] as $_ => $data) {
       $_SESSION['username'] = $data['user']['username'];
       echo "

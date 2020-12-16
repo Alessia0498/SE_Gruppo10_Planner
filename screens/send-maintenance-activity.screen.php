@@ -20,8 +20,7 @@
     if (isset($_GET['send']) && isset($_GET['week']) && isset($_GET['week_day'])) {
         $week = array('week' => $_GET['week'], 'week_day' => $_GET['week_day']);
         $response = Api::availability($_SESSION['username'], $week);
-        $response = json_decode($response, true);
-        var_dump($response);
+        $response = json_decode($response, true);;
 
 
 
@@ -34,77 +33,36 @@
                     break;
 
                 case 20:
-                    $color0 = ("style=\"background:orange; text-align:center; width:10%;\"");
+                    $color0 = ("style=\"background:orange; text-align:center; width:10%; cursor:pointer;\"");
                     break;
 
                 case 35:
-                    $color0 = ("style=\"background:yellow; text-align:center; width:10%;\"");
+                    $color0 = ("style=\"background:yellow; text-align:center; width:10%; cursor:pointer;\"");
                     break;
 
 
                 case 50:
-                    $color0 = ("style=\"background:#8cff40; text-align:center; width:10%;\"");
+                    $color0 = ("style=\"background:#8cff40; text-align:center; width:10%; cursor:pointer;\"");
                     break;
 
                 case 60:
-                    $color0 = ("style=\"background:green; text-align:center; width:10%;\"");
+                    $color0 = ("style=\"background:green; text-align:center; width:10%; cursor:pointer;\"");
                     break;
             }
         }
 
-
-        /*switch ($maintainer['skills']) {
-            case 0:
-                $color7 = ("style=\"background:red; text-align:center; width:10%;\"");
-                break;
-
-            case 1:
-                $color7 = ("style=\"background:#ff4d00; text-align:center; width:10%;\"");
-                break;
-
-
-            case 2:
-                $color7 = ("style=\"background:orange; text-align:center; width:10%;\"");
-                break;
-
-            case 3:
-                $color7 = ("style=\"background:yellow; text-align:center; width:10%;\"");
-                break;
-
-
-            case 4:
-                $color7 = ("style=\"background:#8cff40; text-align:center; width:10%;\"");
-                break;
-
-            case 5:
-                $color7 = ("style=\"background:green; text-align:center; width:10%;\"");
-                break;
-        }*/
     ?>
 
         <div class="content">
             <div class="tableFunctions"> </div>
             <?php
-            /*  echo "
-        <h2 style='text-align:center'> Maintenance Activity Information </h2> 
-        <table  class='table3' border='1'>
-        <tr>
-        <td style='text-align:center; width:10%;'> Id: " . $data['id'] . "</td>
-        <td style='text-align:center;  width:10%;'>Area: " . $data['area'] . "</td>
-        <td style='text-align:center; width:10%;'>Tipology: " . $data['tipology'] . "</td>
-        <td style='text-align:center; width:10%;'>Estimated Intervention Time: " . $data['time'] . "</td>
-        <td style='text-align:center; width:10%;'>Week number: " . $data['week'] . "</td>
-        <td style='text-align:center; width:10%;'>Workspace notes: " . $data['note'] . "</td>
-        </tr>
-            echo "
-        <br>*/
+
 
 
             echo "
         <table class='table3'  border='1'>
        <caption>
-       <h3> Availability " . $_SESSION['username'] . " </h3>";/*<p " . $color0 . ">" . $_GET['availability'] . " %</p></caption>
-*/
+       <h3> Availability " . $_SESSION['username'] . " </h3>";
             echo "
         <tr>
         
@@ -123,9 +81,14 @@
 
 
             echo " <tr> <td style='text-align:center;  width:10%;'> " . $_SESSION['username'] . "</td>";
-            /* <td " . $color7 . " > " . $maintainer['skills'] . "/" . $skills . "</td> */
+
             foreach ($response as $_ => $data) {
-                echo " <td " . $color0 . "  'class=\"clickable-row\" onClick=\"javascript:window.location.href=''\">" . $data . "min</td>";
+                echo " <td " . $color0 . " 'class=\"clickable-row\"";
+                if ($data != 0) {
+                    echo "onClick=\"javascript:window.location.href=''\">" . $data . "min</td>";
+                } else {
+                    echo "'\">" . $data . "min</td>";
+                }
 
 
 
