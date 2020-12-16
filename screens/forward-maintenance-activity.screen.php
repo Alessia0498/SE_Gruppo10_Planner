@@ -106,28 +106,25 @@
  <th> Maintainer </th>
  <th> Skills </th>";
     $day = "monday";
-    echo "<th> Availability  $day</th>
- <th> Availability  Tuesday</th>
- <th> Availability  Wednesday</th>
- <th> Availability  Thursday</th>
- <th> Availability  Friday</th>
- <th> Availability  Saturday</th>
- <th> Availability  Sunday</th>
-
+    echo "<th>$day</th>
+ <th>Tuesday</th>
+ <th>Wednesday</th>
+ <th>Thursday</th>
+ <th>Friday</th>
+ <th>Saturday</th>
+ <th>Sunday</th>
  </tr>";
+ 
     foreach ($response['rows'] as $_ => $data) {
       $_SESSION['username'] = $data['user']['username'];
       echo "
         <h2 style='text-align:center'> Maintenance Activity Information </h2> 
         <p>Week number: " . $data['week'] . "</p>
-        <table  class='table3' border='1'>
-        
         <tr>
         <td style='text-align:center; width:10%;'>" . $data['user']['username'] . "</td>
-        <td style='text-align:center; width:10%;'>" . $data['user']['role'] . "</td>
+       
 
-
-       <td " . $color7 . ">" . $data['skill_compliance'] . "</td>";
+       <td style='text-align:center; width:10%; '" . $color7 . ">" . $data['skill_compliance'] . "</td>";
 
       echo " <td " . $color1 . " 'class=\"clickable-row\"";
       if ($data['weekly_percentage_availability']['monday'] != 0) {
