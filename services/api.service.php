@@ -13,11 +13,14 @@ class Api
   static private function get_token()
   {
     if (API::$temporary_token) {
+      //echo ("temporary_token");
       return API::$temporary_token;
     }
-    if (isset($_SESSION['token'])) {
+    if (isset($_SESSION['token']) && $_SESSION['token']) {
+      // echo ("session[token]");
       return $_SESSION['token'];
     }
+    return;
     throw new Exception("Missing Access token");
   }
 
@@ -65,6 +68,8 @@ class Api
 
   static private function request($method, $url, $data = false, $authorization = true)
   {
+    // var_dump($method, $url, $data, $authorization);
+    // echo ("Authorization: Bearer " . API::get_token());
     $response = self::call_api($method, self::$base_url . $url, $data, $authorization);
     if ($response["status_code"] == 401) {
       go_to_page("./SE_Gruppo10_Admin/login.php");
@@ -89,6 +94,7 @@ class Api
 
   static private function delete($url, $data = false, $authorization = true)
   {
+
     return self::request("DELETE", $url, $data, $authorization);
   }
 
@@ -184,8 +190,63 @@ class Api
    */
   static public function delete_maintenance_activity($id)
   {
+    /*if (API::$temporary_token) {
+      var_dump(API::$temporary_token);
+    }
+    if (isset($_SESSION['token'])) {
+      var_dump($_SESSION['token']);
+    }*/
     return self::delete("/activity" . "/" . $id);
   }
+
+
+  /**
+   * Forward maintenance activity by week
+   *
+   * @param string $id
+   * The activity's week
+   * 
+   * @return string|bool
+   * The result on success, false on failure.
+   */
+  static public function forward_maintenance_activity($week)
+  {
+    return self::get("/maintainer" . "/" . $week . "/availabilities");
+  }
+
+  /**
+   * Retrieves the list of availabilities from the database by size
+   *
+   * @param string $current
+   * The current page
+   * 
+   * @param string $page_size
+   * The page size
+   * 
+   * @param string $week
+   * The week of the maintainance activity
+   * 
+   * @return string|bool
+   * The result on success, false on failure.
+   */
+  static public function list_availabilities_by_size($week, $current, $page_size)
+  {
+    return self::get("/maintainer"  . $week . "/availabilities" . "?current_page=" . $current . "&page_size=" . $page_size);
+  }
+
+  /**
+   * Avability of  maintainer chosen 
+   *
+   *
+   * 
+   * @return string|bool
+   * The result on success, false on failure.
+   */
+  static public function availability($username)
+  {
+    return self::get("/maintainer" . "/" . $username . "/availability");
+  }
+
 
   /**
    * 

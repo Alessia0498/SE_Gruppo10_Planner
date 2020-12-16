@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Maintenance Activity List!</title>
+  <title>Maintenance Activity List</title>
   <meta name="author" content="gruppo 10" />
   <link rel="stylesheet" type="text/css" href="../index.css" />
   <meta name="content" content="Maintenance Activity List Screen" />
@@ -33,15 +33,15 @@
     <div>
       <?php
       // $data =  array('id' => 1, 'area' => 'zone1', 'tipology' => 'electrical', 'eit' => '30min', 'week' => 3);
+      if ($response && !isset($_GET['week'])) {
 
-
-      echo "
+        echo "
       <form method=\"get\" action=\"$_SERVER[PHP_SELF]\" id=\"form\" name=\"form\" enctype=\"multipart/form-data\">
       <label for=\"week\"> WEEK: <input type=\"text\" style=\"border: 1px solid black; width:20vw; text-align:center;\" class=\"weeknumber\" required=\"required\" name=\"week\" id=\"week\" placeholder=\"Enter a week [1-52]\" title=\"Enter a week\" />
       </label></form>";
 
-      echo "<table class='table2' border='1'>";
-      echo "
+        echo "<table class='table2' border='1'>";
+        echo "
       <thead>
         <tr>
           <th width='17%' height='100%' align='center'>Id</th>
@@ -52,26 +52,26 @@
       </thead>";
 
 
-      // if ($response && isset($_POST['week'])) {
+        // if ($response && isset($_POST['week'])) {
 
-      foreach ($response['rows'] as $_ => $data) {
-        // if ($_GET['week'] == $data['week']) {
+        foreach ($response['rows'] as $_ => $data) {
+          // if ($_GET['week'] == $data['week']) {
 
 
-        echo "  <tbody>
-          <tr class=\"clickable-row\" onClick=\"javascript:window.location.href='view-maintenance-activity.screen.php?id=" . $data['activity_id'] . "'\">
+          echo "  <tbody>
+          <tr class=\"clickable-row\" onClick=\"javascript:window.location.href='view-maintenance-activity.screen.php?activity_id=" . $data['activity_id'] . "'\">
             <td width='17%' height='100%' align='center'>" . $data['activity_id'] . "</td>
             <td width='17%' height='100%' align='center'>" . $data['site'] . "</td>
             <td width='17%' height='100%' align='center'>" . $data['typology'] . "</td> 
             <td width='17%' height='100%' align='center'>" . $data['estimated_time'] . "</td>   
           </tr>
         </tbody>";
+        }
+        // }
       }
-      // }
-      //  }
       echo "</table>";
 
-      if ($response && isset($_POST['week'])) {
+      if ($response && isset($_GET['week'])) {
         echo "
       <form method=\"get\" action=\"$_SERVER[PHP_SELF]\" id=\"form\" name=\"form\" enctype=\"multipart/form-data\">
       <label for=\"week\"> WEEK: <input type=\"text\" style=\"border: 1px solid black; width:20vw; text-align:center;\" class=\"weeknumber\" required=\"required\" name=\"week\" id=\"week\" placeholder=\"Enter a week [1-52]\" title=\"Enter a week\" />
@@ -96,10 +96,10 @@
 
 
             echo "  <tbody>
-          <tr class=\"clickable-row\" onClick=\"javascript:window.location.href='view-maintenance-activity.screen.php?id=" . $data['activity_id'] . "'\">
+          <tr class=\"clickable-row\" onClick=\"javascript:window.location.href='view-maintenance-activity.screen.php?activity_id=" . $data['activity_id'] . "'\">
             <td width='17%' height='100%' align='center'>" . $data['activity_id'] . "</td>
             <td width='17%' height='100%' align='center'>" . $data['site'] . "</td>
-            <td width='17%' height='100%' align='center'>" . $data['tipology'] . "</td> 
+            <td width='17%' height='100%' align='center'>" . $data['typology'] . "</td> 
             <td width='17%' height='100%' align='center'>" . $data['estimated_time'] . "</td>   
           </tr>
         </tbody>";
@@ -144,10 +144,10 @@
 
 
           echo "  <tbody>
-        <tr class=\"clickable-row\" onClick=\"javascript:window.location.href='view-maintenance-activity.screen.php?id=" . $data['activity_id'] . "'\">
+        <tr class=\"clickable-row\" onClick=\"javascript:window.location.href='view-maintenance-activity.screen.php?activity_id=" . $data['activity_id'] . "'\">
           <td width='17%' height='100%' align='center'>" . $data['activity_id'] . "</td>
           <td width='17%' height='100%' align='center'>" . $data['site'] . "</td>
-          <td width='17%' height='100%' align='center'>" . $data['tipology'] . "</td> 
+          <td width='17%' height='100%' align='center'>" . $data['typology'] . "</td> 
           <td width='17%' height='100%' align='center'>" . $data['estimated_time'] . "</td>   
         </tr>
       </tbody>";

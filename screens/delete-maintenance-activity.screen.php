@@ -15,10 +15,11 @@
     require_once '../common/library.php';
     include '../services/api.service.php';
 
+    session_start();
     generate_header1();
-    if (isset($_GET['delete']) && isset($_GET['id'])) {
-        Api::delete_maintenance_activity($_GET["id"]);
-        echo '<h3 style="text-align: center; color: green">User deleted!</h3>';
+    if (isset($_GET['delete']) && isset($_GET['activity_id'])) {
+        Api::delete_maintenance_activity($_GET["activity_id"]);
+        echo '<h3 style="text-align: center; color: green">Maintenance activity deleted!</h3>';
     }
     back2();
     ?>

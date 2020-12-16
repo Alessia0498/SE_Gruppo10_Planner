@@ -35,7 +35,7 @@
 
 
             <label for="type"> Activity Type: *
-                <select name="type" id="type" title="Select type">
+                <select name="activity_type" id="activity_type" title="Select type">
                     <option value="planned">Planned Activity</option>
                     <option value="unplanned">Un-planned Activity (EWO)</option>
                     <option value="extra_activity">Extra Activity</option>
@@ -50,13 +50,13 @@
             </label>
 
 
-            <label for="area"> Area (department): *
+            <!--<label for="area"> Area (department): *
                 <input type="text" required="required" name="area" id="area" placeholder="Enter a area" title="Enter a area" />
-            </label>
+            </label>-->
 
 
-            <label for="tipology"> Activity's tipology: *
-                <select name="tipology" id="tipology" title="Select tipology">
+            <label for="typology"> Activity's tipology: *
+                <select name="typology" id="typology" title="Select tipology">
                     <option value="electrical"> Electrical</option>
                     <option value="electronic"> Electronic</option>
                     <option value="hydraulic"> Hydraulic</option>
@@ -71,8 +71,8 @@
 
 
 
-            <label for="time"> Estimated intervention time (min): *</label>
-            <input type="number" id="time" name="time" min="1" max="480">
+            <label for="estimated_time"> Estimated intervention time (min): *</label>
+            <input type="number" id="estimated_time" name="estimated_time" min="1" max="480">
             </label>
 
 
@@ -86,11 +86,7 @@
 
 
             <legend>Materials:</legend>
-            <input type="checkbox" name="materials[]" value="material1" /> Material 1
-            <br />
-            <input type="checkbox" name="materials[]" value="material2" /> Material 2
-            <br />
-            <input type="checkbox" name="materials[]" value="material3" /> Material 3 <br />
+            <input type="text" name="materials" id="materials" required />
 
             <br>
 
@@ -101,8 +97,8 @@
 
 
 
-            <label for="note">Workspace notes:<br />
-                <textarea rows="5" cols="81" name="note" id="note"> </textarea> <br />
+            <label for="workspace_notes">Workspace notes:<br />
+                <textarea rows="5" cols="81" name="workspace_notes" id="workspace_notes"> </textarea> <br />
             </label>
 
             <br />

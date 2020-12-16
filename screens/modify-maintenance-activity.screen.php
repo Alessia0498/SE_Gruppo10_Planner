@@ -18,7 +18,7 @@
   generate_header1();
   session_start();
 
-  $response = Api::get_maintenance_activity($_GET['id']);
+  $response = Api::get_maintenance_activity($_GET['activity_id']);
   $data = json_decode($response, true);
 
   /*$data =  array(
@@ -29,25 +29,25 @@
 
   <div class="form">
 
-    <form method="post" action="view-maintenance-activity.screen.php?modify=yes&id=<?php echo $data['id']; ?>" id="form2" name="form2" enctype="multipart/form-data">
+    <form method="post" action="view-maintenance-activity.screen.php?modify=yes&activity_id=<?php echo $data['activity_id']; ?>" id="form2" name="form2" enctype="multipart/form-data">
 
 
-      <label for="type"> Activity Type:
+      <label for="activity_type"> Activity Type:
         <!-- <select name="type" id="type" title="Select type">-->
-        <?php if ($data['type'] == 'pa') { ?>
-          <input type="text" required="required" name="type" id="type" readonly="readonly" value="<?php echo $data['type'] ?>" />
+        <?php if ($data['activity_type'] == 'planned') { ?>
+          <input type="text" required="required" name="type" id="type" readonly="readonly" value="<?php echo $data['activity_type'] ?>" />
           <!--  <option value="pa" selected>Planned Activity</option>
             <option value="ua" readonly>Un-planned Activity (EWO)</option>
             <option value="ea" readonly>Extra Activity </option>-->
         <?php } ?>
-        <?php if ($data['type'] == 'ua') { ?>
-          <input type="text" required="required" name="type" id="type" readonly="readonly" value="<?php echo $data['type'] ?>" />
+        <?php if ($data['activity_type'] == 'unplanned') { ?>
+          <input type="text" required="required" name="type" id="type" readonly="readonly" value="<?php echo $data['activity_type'] ?>" />
           <!-- <option value="pa">Planned Activity</option>
           <option value="ua" selected>Un-planned Activity (EWO)</option>
           <option value="ea">Extra Activity </option>-->
         <?php } ?>
-        <?php if ($data['type'] == 'ea') { ?>
-          <input type="text" required="required" name="type" id="type" readonly="readonly" value="<?php echo $data['type'] ?>" />
+        <?php if ($data['activity_type'] == 'extra_activity') { ?>
+          <input type="text" required="required" name="type" id="type" readonly="readonly" value="<?php echo $data['activity_type'] ?>" />
           <!--<option value="pa">Planned Activity</option>
           <option value="ua">Un-planned Activity (EWO)</option>
           <option value="ea" selected>Extra Activity </option>-->
@@ -64,17 +64,18 @@
       </label>
 
 
-      <label for="area"> Area (department):
-        <input type="text" required="required" name="area" id="area" readonly="readonly" value="<?php echo $data['area'] ?>" />
-      </label>
+      <!-- <label for="area"> Area (department):
+        <input type="text" required="required" name="area" id="area" readonly="readonly" value="<?php //echo $data['area'] 
+                                                                                                ?>" />
+      </label>-->
 
 
-      <label for="tipology"> Activity's tipology:
+      <label for="typology"> Activity's tipology:
         <!--<select name="tipology" id="tipology" readonly="readonly">-->
 
 
-        <?php if ($data['tipology'] == 'electrical') { ?>
-          <input type="text" required="required" name="tipology" id="tipology" readonly="readonly" value="<?php echo $data['tipology'] ?>" />
+        <?php if ($data['typology'] == 'electrical') { ?>
+          <input type="text" required="required" name="typology" id="typology" readonly="readonly" value="<?php echo $data['typology'] ?>" />
           <!--<option value="electrical" selected> Electrical</option>
             <option value="electronic"> Electronic</option>
             <option value="hydraulic"> Hydraulic</option>
@@ -82,8 +83,8 @@
 
         <?php } ?>
 
-        <?php if ($data['tipology'] == 'electronic') { ?>
-          <input type="text" required="required" name="tipology" id="tipology" readonly="readonly" value="<?php echo $data['tipology'] ?>" />
+        <?php if ($data['typology'] == 'electronic') { ?>
+          <input type="text" required="required" name="typology" id="typology" readonly="readonly" value="<?php echo $data['typology'] ?>" />
           <!-- <option value="electrical"> Electrical</option>
             <option value="electronic" selected> Electronic</option>
             <option value="hydraulic"> Hydraulic</option>
@@ -92,8 +93,8 @@
         <?php } ?>
 
 
-        <?php if ($data['tipology'] == 'hydraulic') { ?>
-          <input type="text" required="required" name="tipology" id="tipology" readonly="readonly" value="<?php echo $data['tipology'] ?>" />
+        <?php if ($data['typology'] == 'hydraulic') { ?>
+          <input type="text" required="required" name="typology" id="typology" readonly="readonly" value="<?php echo $data['typology'] ?>" />
           <!-- <option value="electrical"> Electrical</option>
             <option value="electronic"> Electronic</option>
             <option value="hydraulic" selected> Hydraulic</option>
@@ -102,8 +103,8 @@
         <?php } ?>
 
 
-        <?php if ($data['tipology'] == 'mechanical') { ?>
-          <input type="text" required="required" name="tipology" id="tipology" readonly="readonly" value="<?php echo $data['tipology'] ?>" />
+        <?php if ($data['typology'] == 'mechanical') { ?>
+          <input type="text" required="required" name="typology" id="typology" readonly="readonly" value="<?php echo $data['typology'] ?>" />
           <!--<option value="electrical"> Electrical</option>
             <option value="electronic"> Electronic</option>
             <option value="hydraulic"> Hydraulic</option>
@@ -121,8 +122,8 @@
 
 
 
-      <label for="time"> Estimated intervention time (min):<br />
-        <input type="text" id="time" name="time" readonly="readonly" value="<?php echo $data['time'] ?>"> <br />
+      <label for="estimated_time"> Estimated intervention time (min):<br />
+        <input type="text" id="estimated_time" name="estimated_time" readonly="readonly" value="<?php echo $data['estimated_time'] ?>"> <br />
       </label>
 
 
@@ -145,75 +146,23 @@
 
 
 
-      <label for="materials">
-        <!--<legend>-->Materials:
-        <!--</legend>--><br>
-        <?php if ($data['materials'] == 'material1') { ?>
-          <input type="text" required="required" name="materials" id="materials" readonly="readonly" value="<?php echo $data['materials'] ?>" />
-          <!--<input type="checkbox" name="material1" selected readonly value="material1" /> Material 1
-      <input type="checkbox" name="material2" readonly value="material2" /> Material 2
-      <input type="checkbox" name="material3" readonly value="material3" /> Material 3-->
-        <?php } ?>
 
-
-        <?php if ($data['materials'] == 'material2') { ?>
-          <input type="text" required="required" name="materials" id="materials" readonly="readonly" value="<?php echo $data['materials'] ?>" />
-          <!--<input type="checkbox" name="material1" readonly value="material1" /> Material 1
-      <input type="checkbox" name="material2" selected readonly value="material2" /> Material 2
-      <input type="checkbox" name="material3" readonly value="material3" /> Material 3-->
-        <?php } ?>
-
-
-        <?php if ($data['materials'] == 'material3') { ?>
-          <input type="text" required="required" name="materials" id="materials" readonly="readonly" value="<?php echo $data['materials'] ?>" />
-          <!--<input type="checkbox" name="material1" readonly value="material1" /> Material 1
-      <input type="checkbox" name="material2" readonly value="material2" /> Material 2
-      <input type="checkbox" name="material3" selected readonly value="material3" /> Material 3 <br />-->
-        <?php } ?>
-
-
-        <?php if ($data['materials'] == 'material1, material2') { ?>
-          <input type="text" required="required" name="materials" id="materials" readonly="readonly" value="<?php echo $data['materials'] ?>" />
-          <!--<input type="checkbox" name="material1" selected readonly value="material1" /> Material 1
-      <input type="checkbox" name="material2" selected readonly value="material2" /> Material 2
-      <input type="checkbox" name="material3" readonly value="material3" /> Material 3-->
-        <?php } ?>
-
-
-        <?php if ($data['materials'] == 'material1 , material3') { ?>
-          <input type="text" required="required" name="materials" id="materials" readonly="readonly" value="<?php echo $data['materials'] ?>" />
-          <!--<input type="checkbox" name="material1" selected readonly value="material1" /> Material 1
-        <input type="checkbox" name="material2" readonly value="material2" /> Material 2
-        <input type="checkbox" name="material3" selected readonly value="material3" /> Material 3
-        --><?php } ?>
-
-
-        <?php if ($data['materials'] == 'material2 , material3') { ?>
-          <input type="text" required="required" name="materials" id="materials" readonly="readonly" value="<?php echo $data['materials'] ?>" />
-          <!--<input type="checkbox" name="material1" readonly value="material1" /> Material 1
-        <input type="checkbox" name="material2" selected readonly value="material2" /> Material 2
-        <input type="checkbox" name="material3" selected readonly value="material3" /> Material 3
-        --><?php } ?>
-
-
-        <?php if ($data['materials'] == 'material1 , material2 , material3') { ?>
-          <input type="text" required="required" name="materials" id="materials" readonly="readonly" value="<?php echo $data['materials'] ?>" />
-          <!--<input type="checkbox" name="material1" selected readonly value="material1" /> Material 1
-        <input type="checkbox" name="material2" selected readonly value="material2" /> Material 2
-        <input type="checkbox" name="material3" selected readonly value="material3" /> Material 3
-        --><?php } ?>
-
-
-
-
-        <label for="week"> Week (1-52 weeks):</label>
-        <input type="number" id="week" name="week" min="1" max="52" readonly="readonly" value="<?php echo $data['week'] ?>"> <br />
+      <label for="Materials"> Materials: <br />
+        <input type="text" required="required" name="materials" id="materials" readonly="readonly" value="<?php echo $data['materials'] ?>"> <br />
       </label>
 
 
 
-      <label for="note">Workspace notes: <br />
-        <input type="text" name="note" id="note" value="<?php echo $data['note']; ?>" /> <br />
+
+
+      <label for="week"> Week (1-52 weeks):</label>
+      <input type="number" id="week" name="week" min="1" max="52" readonly="readonly" value="<?php echo $data['week'] ?>"> <br />
+      </label>
+
+
+
+      <label for="workspace_notes">Workspace notes: <br />
+        <input type="text" name="workspace_notes" id="workspace_notes" value="<?php echo $data['workspace_notes']; ?>" /> <br />
       </label>
 
       <button type="submit" name="save" id="save" value="Save" class="button"> Save</button>
