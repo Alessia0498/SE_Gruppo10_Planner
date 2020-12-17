@@ -80,7 +80,7 @@
 
 
             <legend>Materials:</legend>
-            <input type="text" name="materials" id="materials" required />
+            <input type="text" name="materials" id="materials" />
 
             <br>
 
