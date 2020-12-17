@@ -158,7 +158,7 @@ class Api
    */
   static public function post_maintenance_activity($maintenance)
   {
-
+    $maintenance["interruptible"] = (($maintenance["interruptible"] == "true") ? true : false);
     return self::post("/activity", $maintenance);
   }
 
@@ -256,9 +256,9 @@ class Api
    * @return string|bool
    * The result on success, false on failure.
    */
-  static public function assign($id, $username)
+  static public function assign($id, $maintainer_username, $week_day, $start_time)
   {
-    return self::get("/activity" . "/" . $id . "/assign?username=" . $username);
+    return self::put("/activity" . "/" . $id . "/assign?maintainer_username=" . $maintainer_username . "&week_day=" . $week_day . "&start_time=" . $start_time);
   }
 
   /**

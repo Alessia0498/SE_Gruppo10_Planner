@@ -10,11 +10,15 @@
     <meta charset="utf-8" />
 
     <script type="text/javascript">
-        function show_message_assign() {
-            if (confirm("Are you sure you want assign at this maintainer?")) {
-                self.location = 'assign-maintenance-activity.screen.php?assign=yes';
-                return true;
+        function show_message_assign(hour) {
+            if (confirm("Are you sure you want assign the activity to this maintainer?")) {
+                console.log("AA");
+                var user = "<?php echo $_GET["user"]; ?>";
+                var activity = "<?php echo $_GET["activity_id"]; ?>";
+                var week_day = "<?php echo $_GET["week_day"]; ?>";
 
+                self.location = 'assign-maintenance-activity.screen.php?assign=yes&user=' + user + '&activity_id=' + activity + "&week_day=" + week_day + "&start_time=" + hour;
+                return true;
             }
             self.location = 'list-maintenance-activity.screen.php';
             return false;
@@ -31,9 +35,9 @@
 
     session_start();
     generate_header1();
-    if (isset($_GET['send']) && isset($_GET['activity_id']) && isset($_GET['week_day'])) {
+    if (isset($_GET['send']) && isset($_GET['activity_id']) && isset($_GET['week_day']) && isset($_GET['user'])) {
         $week = array('activity_id' => $_GET['activity_id'], 'week_day' => $_GET['week_day']);
-        $response = Api::availability($_SESSION['username'], $week);
+        $response = Api::availability($_GET['user'], $week);
         $response = json_decode($response, true);;
 
 
@@ -76,30 +80,23 @@
             echo "
         <table class='table3'  border='1'>
        <caption>
-       <h3> Availability " . $_SESSION['username'] . " </h3>";
+       <h3> Availability " . $_GET['user'] . " </h3>";
             echo "
         <tr>
         
-        <th> Maintainer </th>
-        
-        <th> Availability  <br> 8.00-9.00</th>
-        <th> Availability  <br> 9.00-10.00</th>
-        <th> Availability  <br>10.00-11.00</th>
-        <th> Availability  <br>11.00-12.00</th>
-        <th> Availability  <br>12.00-13.00</th>
-        <th> Availability  <br>13.00-14.00</th>
-        <th> Availability  <br>14.00-15.00</th>
-        <th> Availability  <br>15.00-16.00</th>
-        </tr>";
+        <th> Maintainer </th>";
+
+            foreach ($response as $hour => $time_left) {
+                echo "<th> Availability  <br> " . $hour . ".00-" . ($hour + 1) . ".00</th>";
+            }
 
 
+            echo " <tr> <td style='text-align:center;  width:10%;'> " . $_GET['user'] . "</td>";
 
-            echo " <tr> <td style='text-align:center;  width:10%;'> " . $_SESSION['username'] . "</td>";
-
-            foreach ($response as $_ => $data) {
+            foreach ($response as $hour => $data) {
                 echo " <td " . $color0 . " 'class=\"clickable-row\"";
                 if ($data != 0) {
-                    echo "onclick=\"return show_message_assign();\" >" . $data . "min</td>";
+                    echo "onclick=\"show_message_assign(" . $hour . ");\" >" . $data . "min</td>";
                 } else {
                     echo "'\">" . $data . "min</td>";
                 }

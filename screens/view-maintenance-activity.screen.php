@@ -64,16 +64,16 @@
         <br> <h3 style='display:inline'>Site: </h3><p style='display:inline'>" . $data['site'] . "</p> </br>
         <br> <h3 style='display:inline'>Tipology:</h3><p style='display:inline'> " . $data['typology'] . "</p> </br>
         <br> <h3 style='display:inline'>Estimated Intervention Time:</h3><p style='display:inline'> " . $data['estimated_time'] . "</p> </br>
-        <br> <h3 style='display:inline'>Interruptible:</h3><p style='display:inline'> " . $data['interruptible'] . "</p> </br>
+        <br> <h3 style='display:inline'>Interruptible:</h3><p style='display:inline'> " . ($data['interruptible'] ? "True" : "False") . "</p> </br>
         <br> <h3 style='display:inline'>Materials: </h3><p style='display:inline'>" . $data['materials'] . "</p> </br>
         <br> <h3 style='display:inline'>Week:</h3><p style='display:inline'> " . $data['week'] . "</p> </br>
         <br> <h3 style='display:inline'> Worspace notes: </h3><p style='display:inline'> " . $data['workspace_notes'] . " <img src=\"../assets/modify.png\" class=\"tableFunctionsModify\" title=\"Modify maintenance activity\" onClick=\"javascript:window.location.href='modify-maintenance-activity.screen.php?modify=yes&activity_id=" . $data['activity_id'] . "'\"></p> </br>
         <br> <h3 style='display:inline'>Intervention Description: </h3> <p style='display:inline'> " . $data['description'] . "</p> </br>
         <br> <h3 style='display:inline'>Skills Needed: </h3> <ul>";
       foreach ($data['skills_needed'] as $elements) {
-        echo " <li>" .$elements. "</li> ";
-       }
-       echo " </ul> " ;?>
+        echo " <li>" . $elements . "</li> ";
+      }
+      echo " </ul> "; ?>
     </div>
   <?php }
 
@@ -143,15 +143,13 @@
       <br> <h3 style='display:inline'> Worspace notes: </h3><p style='display:inline'> " . $data['workspace_notes'] . "</p> </br>
       <br> <h3 style='display:inline'>Intervention Description: </h3> <p style='display:inline'> " . $data['description'] . "</p> </br>
       <br> <h3 style='display:inline'>Skills Needed: </h3> <ul>";
-    foreach ($data['skills_needed'] as $elements) {
-      echo " <li>" .$elements. "</li> ";
-     }
-     echo " </ul> " ;
-     
-    
+      foreach ($data['skills_needed'] as $elements) {
+        echo " <li>" . $elements . "</li> ";
+      }
+      echo " </ul> ";
     }
   }
- back2();?>
+  back2(); ?>
 
 
 

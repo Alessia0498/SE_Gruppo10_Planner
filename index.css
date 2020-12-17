@@ -42,6 +42,10 @@ body {
   font-size: 17px;
 }
 
+.topnav1 a:hover {
+  background-color: #27282c;
+  color: white;
+}
 .topnav1 a.lineeMenu:hover {
   background: #27282c;
   color: white;
@@ -180,9 +184,7 @@ select {
 }
 
 .meta {
-  width: 100%;
-  text-align: center;
-  margin-top: 20px;
+  display: inline;
 }
 
 .image1 {

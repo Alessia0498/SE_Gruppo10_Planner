@@ -32,7 +32,7 @@
 
     <div>
       <?php
-     
+
       if ($response && !isset($_GET['week'])) {
 
         echo "
@@ -52,7 +52,7 @@
       </thead>";
 
 
-        
+
         foreach ($response['rows'] as $_ => $data) {
 
 
@@ -66,9 +66,17 @@
           </tr>
         </tbody>";
         }
-       
       }
       echo "</table>";
+
+      echo "
+      <br>
+        <div class=\"meta\"></div>
+         <p class=\"meta\" style=\"font-weight: bold;\">Total activity  </p>" . $response['meta']['count'] .
+        "<p class=\"meta\" style=\"font-weight: bold;\">     Current page    </p>" . $response['meta']['current_page'] .
+        "<p class=\"meta\" style=\"font-weight: bold;\">     Total page    </p>" . $response['meta']['page_count'] .
+        "<p class=\"meta\" style=\"font-weight: bold;\">     Results for page    </p>" . $response['meta']['page_size'] . "
+        ";
 
       if ($response && isset($_GET['week'])) {
         echo "
@@ -136,10 +144,10 @@
     </thead>";
 
 
-     
+
 
         foreach ($response['rows'] as $_ => $data) {
-          
+
 
           echo "  <tbody>
         <tr class=\"clickable-row\" onClick=\"javascript:window.location.href='view-maintenance-activity.screen.php?activity_id=" . $data['activity_id'] . "'\">
@@ -149,10 +157,18 @@
           <td width='17%' height='100%' align='center'>" . $data['estimated_time'] . "</td>   
         </tr>
       </tbody>";
-          // }
         }
-        // }
+
         echo "</table>";
+
+        echo "
+        <br>
+          <div class=\"meta\"></div>
+           <p class=\"meta\" style=\"font-weight: bold;\">Total activity  </p>" . $response['meta']['count'] .
+          "<p class=\"meta\" style=\"font-weight: bold;\">     Current page    </p>" . $response['meta']['current_page'] .
+          "<p class=\"meta\" style=\"font-weight: bold;\">     Total page    </p>" . $response['meta']['page_count'] .
+          "<p class=\"meta\" style=\"font-weight: bold;\">     Results for page    </p>" . $response['meta']['page_size'] . "
+          ";
 
 
         if ($response['meta']['count'] > $response['meta']['page_size']) {

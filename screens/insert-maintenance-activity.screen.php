@@ -71,9 +71,9 @@
 
 
             <p>Interruptible Activity: *</p>
-            <input type="radio" id="interruptible" name="interruptible" value="true">
+            <input type="radio" id="interruptible" name="interruptible" value="true" required />
             <label for="yes">Yes</label>
-            <input type="radio" id="interruptible" name="interruptible" value="false">
+            <input type="radio" id="interruptible" name="interruptible" value="false" required />
             <label for="no">No</label><br>
 
             <br />
