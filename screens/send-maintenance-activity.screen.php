@@ -42,32 +42,27 @@
 
 
 
+        $colors = array();
 
-        foreach ($response as  $data) {
-
-            switch ($data) {
-                case 0:
-                    $color0 = ("style=\"background:red; text-align:center; width:10%;\"");
-                    break;
-
-                case 20:
-                    $color0 = ("style=\"background:orange; text-align:center; width:10%; cursor:pointer;\"");
-                    break;
-
-                case 35:
-                    $color0 = ("style=\"background:yellow; text-align:center; width:10%; cursor:pointer;\"");
-                    break;
+        foreach ($response as $hour => $data) {
 
 
-                case 50:
-                    $color0 = ("style=\"background:#8cff40; text-align:center; width:10%; cursor:pointer;\"");
-                    break;
-
-                case 60:
-                    $color0 = ("style=\"background:green; text-align:center; width:10%; cursor:pointer;\"");
-                    break;
+            if ($data <= 0) {
+                $colors[$hour] = ("style=\"background:red; text-align:center; width:10%;\"");
+            } else if ($data <= 20) {
+                $colors[$hour] = ("style=\"background:orange; text-align:center; width:10%;cursor:pointer;\"");
+            } else if ($data <= 35) {
+                $colors[$hour] = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
+            } else if ($data <= 50) {
+                $colors[$hour] = ("style=\"background:#8cff40; text-align:center; width:10%;cursor:pointer;\"");
+            } else {
+                $colors[$hour] = ("style=\"background:green; text-align:center; width:10%; cursor:pointer;\"");
             }
         }
+
+
+
+
 
     ?>
 
@@ -93,15 +88,15 @@
 
             echo " <tr> <td style='text-align:center;  width:10%;'> " . $_GET['user'] . "</td>";
 
+
             foreach ($response as $hour => $data) {
-                echo " <td " . $color0 . " 'class=\"clickable-row\"";
+                echo " <td " . $colors[$hour] . " 'class=\"clickable-row\"";
                 if ($data != 0) {
                     echo "onclick=\"show_message_assign(" . $hour . ");\" >" . $data . "min</td>";
                 } else {
                     echo "'\">" . $data . "min</td>";
                 }
             }
-
             echo " </tr>  
          </tbody>
          </table>";

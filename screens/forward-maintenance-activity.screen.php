@@ -37,17 +37,17 @@
   foreach ($week_days as $_ => $week_day) {
     foreach ($response['rows'] as $i => $data) {
 
-      $monday_percentage = $data['weekly_percentage_availability'][$week_day];
-      if ($monday_percentage <= 0) {
-        $colors[$week_day] = ("style=\"background:red; text-align:center; width:10%;\"");
-      } else if ($monday_percentage <= 20) {
-        $colors[$week_day] = ("style=\"background:orange; text-align:center; width:10%;cursor:pointer;\"");
-      } else if ($monday_percentage <= 50) {
-        $colors[$week_day] = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
-      } else if ($monday_percentage <= 80) {
-        $colors[$week_day] = ("style=\"background:#8cff40; text-align:center; width:10%;cursor:pointer;\"");
+      $daily_percentage = $data['weekly_percentage_availability'][$week_day];
+      if ($daily_percentage <= 0) {
+        $colors[$i][$week_day] = ("style=\"background:red; text-align:center; width:10%;\"");
+      } else if ($daily_percentage <= 20) {
+        $colors[$i][$week_day] = ("style=\"background:orange; text-align:center; width:10%;cursor:pointer;\"");
+      } else if ($daily_percentage <= 50) {
+        $colors[$i][$week_day] = ("style=\"background:yellow; text-align:center; width:10%;cursor:pointer;\"");
+      } else if ($daily_percentage <= 80) {
+        $colors[$i][$week_day] = ("style=\"background:#8cff40; text-align:center; width:10%;cursor:pointer;\"");
       } else {
-        $colors[$week_day] = ("style=\"background:green; text-align:center; width:10%; cursor:pointer;\"");
+        $colors[$i][$week_day] = ("style=\"background:green; text-align:center; width:10%; cursor:pointer;\"");
       }
     }
   }
@@ -98,7 +98,7 @@
     echo "<h2 style='text-align:center'> Maintenance Activity Information </h2>
     <h3 style='display:inline'>Week number:  " . $data['week'] . "</h3> ";
 
-    foreach ($response['rows'] as $_ => $data) {
+    foreach ($response['rows'] as $i => $data) {
 
       echo "
           <tr>
@@ -107,7 +107,7 @@
 
       echo "<td " . $skill_compliance_color . ">" . $data['skill_compliance'] . "</td>";
 
-      foreach ($colors as $week_day => $color) {
+      foreach ($colors[$i] as $week_day => $color) {
 
         echo "<td " . $color . " class=\"clickable-row\"";
         if ($data['weekly_percentage_availability'][$week_day] != 0) {
@@ -137,7 +137,7 @@
 
 
 
-      foreach ($response['rows'] as $_ => $data) {
+      foreach ($response['rows'] as $i => $data) {
 
 
         echo "  <tbody>
