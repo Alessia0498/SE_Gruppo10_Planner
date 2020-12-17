@@ -33,7 +33,7 @@
     <div>
       <?php
 
-      if ($response && !isset($_GET['week'])) {
+      if ($response && !isset($_GET['week'])  && !isset($_GET['current_page']) && !isset($_GET['page_size'])) {
 
         echo "
       <form method=\"get\" action=\"$_SERVER[PHP_SELF]\" id=\"form\" name=\"form\" enctype=\"multipart/form-data\">
@@ -66,17 +66,32 @@
           </tr>
         </tbody>";
         }
-      }
-      echo "</table>";
 
-      echo "
+        echo "</table>";
+
+
+        echo "
       <br>
         <div class=\"meta\"></div>
          <p class=\"meta\" style=\"font-weight: bold;\">Total activity  </p>" . $response['meta']['count'] .
-        "<p class=\"meta\" style=\"font-weight: bold;\">     Current page    </p>" . $response['meta']['current_page'] .
-        "<p class=\"meta\" style=\"font-weight: bold;\">     Total page    </p>" . $response['meta']['page_count'] .
-        "<p class=\"meta\" style=\"font-weight: bold;\">     Results for page    </p>" . $response['meta']['page_size'] . "
+          "<p class=\"meta\" style=\"font-weight: bold;\">     Current page    </p>" . $response['meta']['current_page'] .
+          "<p class=\"meta\" style=\"font-weight: bold;\">     Total page    </p>" . $response['meta']['page_count'] .
+          "<p class=\"meta\" style=\"font-weight: bold;\">     Results for page    </p>" . $response['meta']['page_size'] . "
         ";
+
+
+        if ($response['meta']['count'] > $response['meta']['page_size']) {
+
+          if ($response['meta']['current_page'] > 1) {
+            echo "<a style=\"color: black;\" href=\"" . $_SERVER['PHP_SELF'] .  "?current_page=" . ($response['meta']['current_page']  - 1) . "&page_size=" . $response['meta']['page_size'] . "\">";
+            echo "Prev Page     </a>";
+          }
+          if ($response['meta']['page_count'] > $response['meta']['current_page']) {
+            echo "<a style=\"color: black;\" href=\"" . $_SERVER['PHP_SELF'] . "?current_page=" . ($response['meta']['current_page']  + 1) . "&page_size=" . $response['meta']['page_size'] . "\">";
+            echo "Next Page</a>";
+          }
+        }
+      }
 
       if ($response && isset($_GET['week'])) {
         echo "
@@ -118,12 +133,14 @@
 
 
 
-      if (isset($_GET['current_page']) && isset($_GET['page_size']) && isset($_GET['week'])) {
+
+      if (isset($_GET['current_page']) && isset($_GET['page_size'])) {
 
 
 
-        $response = Api::list_activities_by_size($_GET['week'], $_GET['current_page'], $_GET['page_size']);
+        $response = Api::list_activities_by_size($_GET['current_page'], $_GET['page_size']);
         $response = json_decode($response, true);
+
 
 
 
@@ -183,6 +200,7 @@
           }
         }
       }
+
       ?>
     </div>
   </div>

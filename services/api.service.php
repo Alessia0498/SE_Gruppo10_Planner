@@ -120,15 +120,14 @@ class Api
    * @param string $page_size
    * The page size
    * 
-   * @param string $week
-   * The week of the maintainance activity
+   * 
    * 
    * @return string|bool
    * The result on success, false on failure.
    */
-  static public function list_activities_by_size($week, $current, $page_size)
+  static public function list_activities_by_size($current, $page_size)
   {
-    return self::get("/activities" . "?week=" . $week . "&current_page=" . $current . "&page_size=" . $page_size);
+    return self::get("/activities" .  "?current_page=" . $current . "&page_size=" . $page_size);
   }
 
 
